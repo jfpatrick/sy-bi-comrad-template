@@ -11,8 +11,8 @@ pytest:
   script:
     - pip install .[core,test]
     - run_headless python -m pytest --log-cli-level=DEBUG --random-order --junitxml=report.xml  \
-      --cov-report html:coverage --cov-report term-missing:skip-covered --cov=sps_bgi_expert_gui \
-      -vx --color=yes sps_bgi_expert_gui/tests/
+      --cov-report html:coverage --cov-report term-missing:skip-covered --cov=be_bi_application_frame \
+      -vx --color=yes
   coverage: '/TOTAL.+ ([0-9]{1,3}%)/'
   artifacts:
     name: coverage-report
