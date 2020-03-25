@@ -1,0 +1,9 @@
+**/.idea/**
+**/__pycache__/**
+**/venv*/**
+**/*.egg-info/**
+**/.hypothesis/**
+**/.pytest_cache/**
+**/.coverage
+**/coverage/**
+**/report.xml
