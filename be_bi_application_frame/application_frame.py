@@ -1,4 +1,5 @@
 import logging
+import threading
 
 from PyQt5.QtWidgets import QWidget, QTabWidget
 from PyQt5.QtGui import QIcon
@@ -19,7 +20,7 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
     The RBAC button will be replaced with a working version based on PyJAPC until a proper solution comes out.
     """
     def __init__(self, parent=None):
-        QWidget.__init__(self, parent)
+        super(ApplicationFrame, self).__init__(parent)
         self.setupUi(self)
 
         # Setup the placeholders
@@ -33,8 +34,8 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
 
         # Create the data sources
         timing_source = LocalTimerTimingSource()
-        data_source = SinusCurveSource()
-        # data_source = SinglePointSource(parameter_name, selector)
+        # data_source = SinusCurveSource()
+        data_source = SinglePointSource(parameter_name, selector)
 
         # Setup the plot
         self.scrolling_plot = self.central_widget.findChild(ScrollingPlotWidget, "scrolling_plot")
@@ -53,6 +54,7 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
         self.cyclic_plot.addCurve(data_source=data_source)
 
         # Log something to see it in the LogDisplay Widget
+        print(threading.currentThread().getName())
         logging.debug("This message won't be visible, because the default log level is INFO")
         logging.info("This is a message from the application.")
 

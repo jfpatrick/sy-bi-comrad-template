@@ -1,4 +1,5 @@
 import math
+import threading
 import logging
 from datetime import datetime
 
@@ -40,6 +41,7 @@ class SinglePointSource(UpdateSource):
             x=datetime.now().timestamp(),
             y=float(value)
         )
+        print(threading.currentThread().getName())
         self.sig_new_data[PointData].emit(new_data)
 
 
