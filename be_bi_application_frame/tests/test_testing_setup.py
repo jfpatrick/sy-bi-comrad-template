@@ -1,7 +1,6 @@
 import math
 import pyjapc
 
-import PyQt5
 from PyQt5.QtWidgets import QTabWidget
 from PyQt5.QtGui import QIcon
 
@@ -25,10 +24,10 @@ def test_can_use_pyjapc(mock_pyjapc):
     """ Makes sure there are no problems mocking PyJapc, unrelated with the actual application. """
     japc_ppm = pyjapc.PyJapc()
     japc_ppm.setSelector(timingSelector="LHC.USER.ALL")
-    japc_ppm.setParam("TEST_DEVICE/Settings", {'theta': 1})
+    japc_ppm.setParam("TEST_DEVICE/Settings", {'theta': 1, 'amplitude': 3})
     value = japc_ppm.getParam("TEST_DEVICE/Acquisition#sin")
     assert value is not None
-    assert value == math.sin(1)
+    assert value == math.sin(1) * 3
 
 
 def test_can_use_pyjapc_within_qt(mock_pyjapc, qtbot):
@@ -45,12 +44,3 @@ def test_can_use_pyjapc_within_qt(mock_pyjapc, qtbot):
     qtbot.addWidget(main_window)
     assert main_window is not None
     assert main_window.windowTitle() == "Test Window"
-
-
-def test_can_open_main_window(monkeypatch, main_window, mock_pyjapc):
-    """ Makes sure we can open the main window and there are no crashes at that stage. """
-    # Should be no error message, so if one is created, raise exception
-    def raise_exception():
-        raise RuntimeError("A QMessageBox opened!")
-    monkeypatch.setattr(PyQt5.QtWidgets.QMessageBox, "exec", raise_exception)
-    assert main_window is not None
