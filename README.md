@@ -29,7 +29,7 @@ empty-application-frame
 
 You should see the frame with a dummy application in the center, like this:
 
-![](images/empty-frame.png)
+![](images/application-frame.png)
 
 Or a smaller window with an error. In the latter case, please report the error to the maintainers.
 

@@ -34,8 +34,8 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
 
         # Create the data sources
         timing_source = LocalTimerTimingSource()
-        # data_source = SinusCurveSource()
-        data_source = SinglePointSource(parameter_name, selector)
+        data_source = SinusCurveSource()
+        # data_source = SinglePointSource(parameter_name, selector)
 
         # Setup the plot
         self.scrolling_plot = self.central_widget.findChild(ScrollingPlotWidget, "scrolling_plot")
