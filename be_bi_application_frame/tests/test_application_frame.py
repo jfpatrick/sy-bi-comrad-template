@@ -12,6 +12,6 @@ def test_can_open_main_window(monkeypatch, main_window, mock_pyjapc):
 
 def test_main_window_has_all_elements(monkeypatch, main_window, mock_pyjapc):
     # Should be no error message, so if one is created, raise exception
-    assert main_window.count() == 2
-    assert main_window.widget(0).windowTitle() == "General"
-    assert main_window.widget(1).windowTitle() == "Playback"
+    assert main_window.central_widget.count() == 2
+    # assert main_window.central_widget.widget(0).title() == "First Tab"
+    # assert main_window.central_widget.widget(1).title() == "Second Tab"

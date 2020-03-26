@@ -127,11 +127,11 @@ class Ui_Form(object):
         self.scrolling_plot.setToolTip(_translate("Form", "This plot is showing the value of TEST_DEVICE/Acquisition#sin over time"))
         self.scrolling_plot.setProperty("plotTitle", _translate("Form", "TEST_DEVICE/Acquisition#sin"))
         self.label_2.setText(_translate("Form", "To replace the content of this tab, remove them with ApplicationFrame.central_widget.removeTab(index) and use ApplicationFrame.central_widget.addTab(your_tab). To replace the entire tabbed container with your own GUI, do instead ApplicationFrame.setCentralWidget(your_gui_widget)."))
-        self.main_tabs_widget.setTabText(self.main_tabs_widget.indexOf(self.first_tab), _translate("Form", "Tab 1"))
+        self.main_tabs_widget.setTabText(self.main_tabs_widget.indexOf(self.first_tab), _translate("Form", "First Tab"))
         self.label_5.setText(_translate("Form", "Example plot: CyclicPlot (or SlidingPlot)"))
         self.cyclic_plot.setToolTip(_translate("Form", "This plot is showing the value of TEST_DEVICE/Acquisition#sin over time"))
         self.cyclic_plot.setProperty("plotTitle", _translate("Form", "TEST_DEVICE/Acquisition#sin"))
-        self.main_tabs_widget.setTabText(self.main_tabs_widget.indexOf(self.second_tab), _translate("Form", "Tab 2"))
+        self.main_tabs_widget.setTabText(self.main_tabs_widget.indexOf(self.second_tab), _translate("Form", "Second Tab"))
         self.bottom_logbox.setProperty("logFormat", _translate("Form", "%(asctime)s %(message)s"))
 from accwidgets.graph.widgets.plotwidget import CyclicPlotWidget, ScrollingPlotWidget
 from comrad.widgets.tables import CLogDisplay
