@@ -4,7 +4,7 @@ import logging
 
 from PyQt5.QtWidgets import QApplication
 
-from be_bi_application_frame.application_frame import ApplicationFrame
+from be_bi_application_frame.widgets.application_frame import ApplicationFrame
 
 
 def main():

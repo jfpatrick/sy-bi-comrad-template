@@ -4,7 +4,7 @@ from papc.fieldtype import FieldType, EquationFieldType
 from papc.deviceproperty import Acquisition, Setting, Command
 from papc.timingselector import TimingSelector
 
-from be_bi_application_frame.demo.papc_utils import IntervalUpdateDevice
+from be_bi_application_frame.dummy_model.papc_utils import IntervalUpdateDevice
 
 
 def setup_papc_devices():

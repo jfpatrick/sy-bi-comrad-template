@@ -6,7 +6,7 @@ try:
     from papc.interfaces.pyjapc import SimulatedPyJapc
     from papc.system import System
 
-    from be_bi_application_frame.application_frame import ApplicationFrame
+    from be_bi_application_frame.widgets.application_frame import ApplicationFrame
     from be_bi_application_frame.demo.papc_devices import setup_papc_devices
 
 

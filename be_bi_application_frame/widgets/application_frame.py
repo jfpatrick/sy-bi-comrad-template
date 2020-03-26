@@ -6,7 +6,7 @@ from PyQt5.QtGui import QIcon
 
 from accwidgets.graph import TimeSpan, ScrollingPlotWidget, CyclicPlotWidget
 
-from be_bi_application_frame.demo.data_source import LocalTimerTimingSource, SinusCurveSource, SinglePointSource
+from be_bi_application_frame.dummy_model.data_source import LocalTimerTimingSource, SinusCurveSource, SinglePointSource
 from be_bi_application_frame.resources.ui_application_frame import Ui_Form as Ui_ApplicationFrame
 
 
