@@ -1,6 +1,5 @@
 import math
 import threading
-import logging
 from datetime import datetime
 
 from PyQt5.QtCore import QTimer
@@ -8,7 +7,7 @@ from PyQt5.QtCore import QTimer
 import pyjapc
 from accwidgets.graph import UpdateSource, PointData
 
-from be_bi_application_frame.dummy_model.papc_devices import setup_papc_devices
+from be_bi_application_frame.dummy_model.papc_setup.papc_devices import setup_papc_devices
 
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 pyjapc.PyJapc = setup_papc_devices()
