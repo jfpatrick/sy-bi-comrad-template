@@ -24,8 +24,8 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
         self.setupUi(self)
 
         # Setup the placeholders
-        self.setWindowTitle("Empty Application Frame")
-        self.setWindowIcon(QIcon('resources/images/CERN_logo.png'))
+        self.setWindowTitle("BE-BI Application Frame")
+        # self.setWindowIcon(QIcon('resources/images/CERN_logo.png'))
         self.central_widget = self.central_widget_container.findChild(QTabWidget, "main_tabs_widget")
 
         # Our parameter and selector to receive updates from
