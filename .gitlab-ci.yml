@@ -6,7 +6,7 @@ before_script:
   - source /opt/venv/bin/activate
   - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf https://:@gitlab.cern.ch:8443
 
-pytest:
+gui_tests:
   image: gitlab-registry.cern.ch/acc-co/accsoft/gui/accsoft-gui-pyqt-distro/acc-py-pyqt:ci
   script:
     - pip install .[core,test]

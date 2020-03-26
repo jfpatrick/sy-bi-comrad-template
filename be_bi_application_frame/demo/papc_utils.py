@@ -9,7 +9,7 @@ class IntervalUpdateDevice(Device):
 
     def __init__(self, field_to_update, selector_to_update, frequency=30, *args, **kwargs):
         # Take out the `frequency` argument from the kwargs, or default to 30Hz
-        self.field_to_update = field_to_update,
+        self.field_to_update = field_to_update
         self.selector_to_update = selector_to_update
         super().__init__(*args, **kwargs)
         # Start the internal timer (RepeatedTimer is defined below)

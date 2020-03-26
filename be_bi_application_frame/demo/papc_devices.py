@@ -19,11 +19,11 @@ def create_my_devices():
         Setting('Settings', (
             FieldType("status", "int", initial_value=1),
             FieldType("name", "str", initial_value="My System"),
-            FieldType("amplitude", "float", initial_value=1),
+            FieldType("amplitude", "float", initial_value=5),
             FieldType("theta", "float", initial_value=0)
         )),
         Acquisition('Acquisition', (
-            EquationFieldType('sin', 'float', 'sin({Settings#theta})'),
+            EquationFieldType('sin', 'float', 'sin({Settings#theta})*{Settings#amplitude}'),
         )),
         # Command('systemOn', (), start_the_device),
         # Command('systemOff', (), stop_the_device),
@@ -34,7 +34,7 @@ def create_my_devices():
                         field_to_update="Settings#theta",
                         selector_to_update=TimingSelector("LHC.USER.ALL"),
                         timing_selectors=(TimingSelector(""), TimingSelector("LHC.USER.ALL")),
-                        frequency=30
+                        frequency=1
                     )
     return [device]
 
