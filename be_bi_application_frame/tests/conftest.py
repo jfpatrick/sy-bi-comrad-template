@@ -2,7 +2,7 @@ import pytest
 import pyjapc
 
 from be_bi_application_frame.widgets.application_frame import ApplicationFrame
-from be_bi_application_frame.dummy_model.papc_setup.papc_devices import setup_papc_devices
+from be_bi_application_frame.models.papc_setup.papc_devices import setup_papc_devices
 
 
 @pytest.fixture()
