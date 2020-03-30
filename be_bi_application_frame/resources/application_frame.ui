@@ -100,7 +100,7 @@
           <attribute name="title">
            <string>First Tab</string>
           </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
             <widget class="QLabel" name="label">
              <property name="font">
@@ -146,22 +146,103 @@
             </layout>
            </item>
            <item>
-            <widget class="QLabel" name="label_2">
-             <property name="font">
-              <font>
-               <italic>true</italic>
-              </font>
-             </property>
-             <property name="text">
-              <string>To replace the content of this tab, remove them with ApplicationFrame.central_widget.removeTab(index) and use ApplicationFrame.central_widget.addTab(your_tab). To replace the entire tabbed container with your own GUI, do instead ApplicationFrame.setCentralWidget(your_gui_widget).</string>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-             <property name="margin">
-              <number>20</number>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="scrolling_plot_controls">
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <item>
+                <widget class="QLabel" name="label_2">
+                 <property name="text">
+                  <string>Amplitude</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="amplitude_sin">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <item>
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>Frequency</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="frequency_sin">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>20</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -169,7 +250,7 @@
           <attribute name="title">
            <string>Second Tab</string>
           </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <layout class="QVBoxLayout" name="verticalLayout_8">
            <item>
             <widget class="QLabel" name="label_5">
              <property name="font">
@@ -202,32 +283,113 @@
                 </size>
                </property>
                <property name="toolTip">
-                <string>This plot is showing the value of TEST_DEVICE/Acquisition#sin over time</string>
+                <string>This plot is showing the value of TEST_DEVICE/Acquisition#cos over time</string>
                </property>
                <property name="plotTitle" stdset="0">
-                <string>TEST_DEVICE/Acquisition#sin</string>
+                <string>TEST_DEVICE/Acquisition#cos</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
            <item>
-            <widget class="QLabel" name="label_3">
-             <property name="font">
-              <font>
-               <italic>true</italic>
-              </font>
-             </property>
-             <property name="text">
-              <string>This plot receives the exact same data as the other one, but displays it differently.</string>
-             </property>
-             <property name="wordWrap">
-              <bool>true</bool>
-             </property>
-             <property name="margin">
-              <number>20</number>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="cyclic_plot_controls">
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <item>
+                <widget class="QLabel" name="label_4">
+                 <property name="text">
+                  <string>Amplitude</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="amplitude_cos">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QLabel" name="label_6">
+                 <property name="text">
+                  <string>Frequency</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="frequency_cos">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>20</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -235,7 +397,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="CLogDisplay" name="bottom_logbox">
+     <widget class="CLogDisplay" name="bottom_logbox" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -254,9 +416,6 @@
         <height>250</height>
        </size>
       </property>
-      <property name="logLevel" stdset="0">
-       <enum>PyDMLogDisplay::INFO</enum>
-      </property>
       <property name="logFormat" stdset="0">
        <string>%(asctime)s %(message)s</string>
       </property>
@@ -267,11 +426,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PyDMLogDisplay</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.logdisplay</header>
-  </customwidget>
-  <customwidget>
    <class>ScrollingPlotWidget</class>
    <extends>QGraphicsView</extends>
    <header>accwidgets.graph.widgets.plotwidget</header>
@@ -280,6 +434,11 @@
    <class>CyclicPlotWidget</class>
    <extends>QGraphicsView</extends>
    <header>accwidgets.graph.widgets.plotwidget</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMLogDisplay</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.logdisplay</header>
   </customwidget>
   <customwidget>
    <class>CLogDisplay</class>

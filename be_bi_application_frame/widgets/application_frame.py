@@ -1,13 +1,13 @@
 import logging
 import threading
 
-from PyQt5.QtWidgets import QWidget, QTabWidget
+from PyQt5.QtWidgets import QWidget, QTabWidget, QSpinBox
 from PyQt5.QtGui import QIcon
 
 from accwidgets.graph import TimeSpan, ScrollingPlotWidget, CyclicPlotWidget
 
-from be_bi_application_frame.models.data_source import LocalTimerTimingSource, SinusCurveSource, SinglePointSource
-from be_bi_application_frame.resources.ui_application_frame import Ui_Form as Ui_ApplicationFrame
+from be_bi_application_frame.models.data_source import DummyAppModel, DeviceTimingSource, SinglePointSource
+from be_bi_application_frame.resources.generated.ui_application_frame import Ui_Form as Ui_ApplicationFrame
 
 
 class ApplicationFrame(QWidget, Ui_ApplicationFrame):
@@ -21,42 +21,55 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
     """
     def __init__(self, parent=None):
         super(ApplicationFrame, self).__init__(parent)
+
+        # Instantiate the view
         self.setupUi(self)
+
+        # Instantiate the model
+        self.model = DummyAppModel()
 
         # Setup the placeholders
         self.setWindowTitle("BE-BI Application Frame")
-        # self.setWindowIcon(QIcon('resources/images/CERN_logo.png'))
+        self.setWindowIcon(QIcon('resources/images/CERN_logo.png'))
         self.central_widget = self.central_widget_container.findChild(QTabWidget, "main_tabs_widget")
 
-        # Our parameter and selector to receive updates from
-        parameter_name = "TEST_DEVICE/Acquisition#sin"
-        selector = "LHC.USER.ALL"
+        # Setup the plots
+        scrolling_plot = self.central_widget.findChild(ScrollingPlotWidget, "scrolling_plot")
+        self._setup_plot(scrolling_plot, parameter="TEST_DEVICE/Acquisition#sin", selector="LHC.USER.ALL")
 
-        # Create the data sources
-        timing_source = LocalTimerTimingSource()
-        data_source = SinusCurveSource()
-        # data_source = SinglePointSource(parameter_name, selector)
+        cyclic_plot = self.central_widget.findChild(CyclicPlotWidget, "cyclic_plot")
+        self._setup_plot(cyclic_plot, parameter="TEST_DEVICE/Acquisition#cos", selector="LHC.USER.ALL")
 
-        # Setup the plot
-        self.scrolling_plot = self.central_widget.findChild(ScrollingPlotWidget, "scrolling_plot")
-        self.scrolling_plot.timing_source = timing_source
-        self.scrolling_plot.time_span = TimeSpan(10.0, 0.0),
-        self.scrolling_plot.time_progress_line = True
-
-        # Connect plot and datasource
-        self.scrolling_plot.addCurve(data_source=data_source)
-
-        # Same goes for the CyclicPlot in Tab 2
-        self.cyclic_plot = self.central_widget.findChild(CyclicPlotWidget, "cyclic_plot")
-        self.cyclic_plot.timing_source = timing_source
-        self.cyclic_plot.time_span = TimeSpan(10.0, 0.0),
-        self.cyclic_plot.time_progress_line = True
-        self.cyclic_plot.addCurve(data_source=data_source)
+        # Setup the control widgets for amplitude and frequency
+        amplitude_sin = self.central_widget.findChild(QSpinBox, "amplitude_sin")
+        frequency_sin = self.central_widget.findChild(QSpinBox, "frequency_sin")
+        amplitude_cos = self.central_widget.findChild(QSpinBox, "amplitude_cos")
+        frequency_cos = self.central_widget.findChild(QSpinBox, "frequency_cos")
+        amplitude_sin.setValue(self.model.get_amplitude_sin())
+        frequency_sin.setValue(self.model.get_frequency_sin())
+        amplitude_cos.setValue(self.model.get_amplitude_cos())
+        frequency_cos.setValue(self.model.get_frequency_cos())
+        amplitude_sin.valueChanged.connect(self.model.set_amplitude_sin)
+        frequency_sin.valueChanged.connect(self.model.set_frequency_sin)
+        amplitude_cos.valueChanged.connect(self.model.set_amplitude_cos)
+        frequency_cos.valueChanged.connect(self.model.set_frequency_cos)
 
         # Log something to see it in the LogDisplay Widget
-        print(threading.currentThread().getName())
         logging.debug("This message won't be visible, because the default log level is INFO")
         logging.info("This is a message from the application.")
+
+    def _setup_plot(self, plot_widget, parameter, selector):
+        # Create the data sources
+        timing_source = DeviceTimingSource(parameter, selector)
+        data_source = SinglePointSource(parameter, selector)
+
+        # Setup the plot
+        plot_widget.timing_source = timing_source
+        plot_widget.time_span = TimeSpan(10.0, 0.0),
+        plot_widget.time_progress_line = True
+
+        # Connect plot and datasource
+        plot_widget.addCurve(data_source=data_source)
 
     def setCentralWidget(self, widget):
         self.central_widget = widget

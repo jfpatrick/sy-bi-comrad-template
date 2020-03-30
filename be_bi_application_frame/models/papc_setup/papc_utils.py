@@ -17,7 +17,7 @@ class IntervalUpdateDevice(Device):
 
     def time_tick(self):
         now = datetime.datetime.now()
-        t = time.mktime(now.timetuple()) + now.microsecond
+        t = time.mktime(now.timetuple()) + now.microsecond / 1e6
         self.set_state({self.field_to_update: t}, self.selector_to_update)
 
 
