@@ -195,12 +195,12 @@
                <item>
                 <widget class="QLabel" name="label_3">
                  <property name="text">
-                  <string>Frequency</string>
+                  <string>Period</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="frequency_sin">
+                <widget class="QSpinBox" name="period_sin">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -223,7 +223,7 @@
                   <number>1</number>
                  </property>
                  <property name="maximum">
-                  <number>20</number>
+                  <number>999999999</number>
                  </property>
                 </widget>
                </item>
@@ -342,12 +342,12 @@
                <item>
                 <widget class="QLabel" name="label_6">
                  <property name="text">
-                  <string>Frequency</string>
+                  <string>Period</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QSpinBox" name="frequency_cos">
+                <widget class="QSpinBox" name="period_cos">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -370,7 +370,7 @@
                   <number>1</number>
                  </property>
                  <property name="maximum">
-                  <number>20</number>
+                  <number>999999999</number>
                  </property>
                 </widget>
                </item>
@@ -397,7 +397,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="CLogDisplay" name="bottom_logbox" native="true">
+     <widget class="CLogDisplay" name="bottom_logbox">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -416,6 +416,9 @@
         <height>250</height>
        </size>
       </property>
+      <property name="logLevel" stdset="0">
+       <enum>PyDMLogDisplay::INFO</enum>
+      </property>
       <property name="logFormat" stdset="0">
        <string>%(asctime)s %(message)s</string>
       </property>
@@ -426,6 +429,11 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>PyDMLogDisplay</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.logdisplay</header>
+  </customwidget>
+  <customwidget>
    <class>ScrollingPlotWidget</class>
    <extends>QGraphicsView</extends>
    <header>accwidgets.graph.widgets.plotwidget</header>
@@ -434,11 +442,6 @@
    <class>CyclicPlotWidget</class>
    <extends>QGraphicsView</extends>
    <header>accwidgets.graph.widgets.plotwidget</header>
-  </customwidget>
-  <customwidget>
-   <class>PyDMLogDisplay</class>
-   <extends>QWidget</extends>
-   <header>pydm.widgets.logdisplay</header>
   </customwidget>
   <customwidget>
    <class>CLogDisplay</class>

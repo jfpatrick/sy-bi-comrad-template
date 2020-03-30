@@ -23,30 +23,30 @@ class DummyAppModel(QObject):
     def get_amplitude_sin(self):
         return self.japc.getParam("TEST_DEVICE/Settings#amplitude_sin")
 
-    def get_frequency_sin(self):
-        return self.japc.getParam("TEST_DEVICE/Settings#frequency_sin")
+    def get_period_sin(self):
+        return self.japc.getParam("TEST_DEVICE/Settings#period_sin")
 
     def get_amplitude_cos(self):
         return self.japc.getParam("TEST_DEVICE/Settings#amplitude_cos")
 
-    def get_frequency_cos(self):
-        return self.japc.getParam("TEST_DEVICE/Settings#frequency_cos")
+    def get_period_cos(self):
+        return self.japc.getParam("TEST_DEVICE/Settings#period_cos")
 
     @pyqtSlot(int)
     def set_amplitude_sin(self, value):
         self.japc.setParam("TEST_DEVICE/Settings#amplitude_sin", value)
 
     @pyqtSlot(int)
-    def set_frequency_sin(self, value):
-        self.japc.setParam("TEST_DEVICE/Settings#frequency_sin", value)
+    def set_period_sin(self, value):
+        self.japc.setParam("TEST_DEVICE/Settings#period_sin", value)
 
     @pyqtSlot(int)
     def set_amplitude_cos(self, value):
         self.japc.setParam("TEST_DEVICE/Settings#amplitude_cos", value)
 
     @pyqtSlot(int)
-    def set_frequency_cos(self, value):
-        self.japc.setParam("TEST_DEVICE/Settings#frequency_cos", value)
+    def set_period_cos(self, value):
+        self.japc.setParam("TEST_DEVICE/Settings#period_cos", value)
 
 
 class DeviceTimingSource(UpdateSource):

@@ -16,11 +16,7 @@ def test_main_window_has_all_elements(monkeypatch, main_window, mock_pyjapc):
     assert top_toolbar is not None
     assert top_toolbar.findChild(QLabel, "future_timing_display") is not None
     assert top_toolbar.findChild(QPushButton, "future_rbac_button") is not None
-
-    assert main_window.central_widget.count() == 2
-    assert main_window.central_widget.tabText(0) == "First Tab"
-    assert main_window.central_widget.tabText(1) == "Second Tab"
-
+    assert len(main_window.central_widget_container.children()) > 0
     assert main_window.bottom_logbox is not None
 
 

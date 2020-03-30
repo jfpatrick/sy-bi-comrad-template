@@ -40,19 +40,19 @@ class ApplicationFrame(QWidget, Ui_ApplicationFrame):
         cyclic_plot = self.central_widget.findChild(CyclicPlotWidget, "cyclic_plot")
         self._setup_plot(cyclic_plot, parameter="TEST_DEVICE/Acquisition#cos", selector="LHC.USER.ALL")
 
-        # Setup the control widgets for amplitude and frequency
+        # Setup the control widgets for amplitude and period
         amplitude_sin = self.central_widget.findChild(QSpinBox, "amplitude_sin")
-        frequency_sin = self.central_widget.findChild(QSpinBox, "frequency_sin")
+        period_sin = self.central_widget.findChild(QSpinBox, "period_sin")
         amplitude_cos = self.central_widget.findChild(QSpinBox, "amplitude_cos")
-        frequency_cos = self.central_widget.findChild(QSpinBox, "frequency_cos")
+        period_cos = self.central_widget.findChild(QSpinBox, "period_cos")
         amplitude_sin.setValue(self.model.get_amplitude_sin())
-        frequency_sin.setValue(self.model.get_frequency_sin())
+        period_sin.setValue(self.model.get_period_sin())
         amplitude_cos.setValue(self.model.get_amplitude_cos())
-        frequency_cos.setValue(self.model.get_frequency_cos())
+        period_cos.setValue(self.model.get_period_cos())
         amplitude_sin.valueChanged.connect(self.model.set_amplitude_sin)
-        frequency_sin.valueChanged.connect(self.model.set_frequency_sin)
+        period_sin.valueChanged.connect(self.model.set_period_sin)
         amplitude_cos.valueChanged.connect(self.model.set_amplitude_cos)
-        frequency_cos.valueChanged.connect(self.model.set_frequency_cos)
+        period_cos.valueChanged.connect(self.model.set_period_cos)
 
         # Log something to see it in the LogDisplay Widget
         logging.debug("This message won't be visible, because the default log level is INFO")

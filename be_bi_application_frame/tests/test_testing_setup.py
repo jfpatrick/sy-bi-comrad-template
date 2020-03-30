@@ -24,10 +24,10 @@ def test_can_use_pyjapc(mock_pyjapc):
     """ Makes sure there are no problems mocking PyJapc, unrelated with the actual application. """
     japc_ppm = pyjapc.PyJapc()
     japc_ppm.setSelector(timingSelector="LHC.USER.ALL")
-    japc_ppm.setParam("TEST_DEVICE/Settings", {'theta': 1, 'amplitude': 3})
+    japc_ppm.setParam("TEST_DEVICE/Settings", {'theta': 1, 'amplitude_sin': 3, 'period_sin': 2})
     value = japc_ppm.getParam("TEST_DEVICE/Acquisition#sin")
     assert value is not None
-    assert value == math.sin(1) * 3
+    assert value == math.sin(1/(2/30))*3
 
 
 def test_can_use_pyjapc_within_qt(mock_pyjapc, qtbot):
