@@ -1,6 +1,6 @@
-# BE-BI Application Frame
+# BE-BI PyQt5 Template
 
-This is the repository for the BE-BI Base Application Frame code.
+This is the repository for the BE-BI PyQt5 Template code.
 
 
 It can be used tTo bootstrap a PyQt GUI project: the code provides a basic 
