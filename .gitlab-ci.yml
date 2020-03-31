@@ -11,7 +11,7 @@ gui_tests:
   script:
     - pip install .[core,test]
     - run_headless python -m pytest --log-cli-level=DEBUG --random-order --junitxml=report.xml  \
-      --cov-report html:coverage --cov-report term-missing:skip-covered --cov=be_bi_application_frame \
+      --cov-report html:coverage --cov-report term-missing:skip-covered --cov=be_bi_pyqt_template \
       -vx --color=yes
   coverage: '/TOTAL.+ ([0-9]{1,3}%)/'
   artifacts:

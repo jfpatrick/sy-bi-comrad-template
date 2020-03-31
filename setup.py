@@ -16,15 +16,14 @@ HERE = Path(__file__).parent.absolute()
 with (HERE / 'README.md').open('rt') as fh:
     LONG_DESCRIPTION = fh.read().strip()
 
-# List your dependencies here, according to their role.
-# All necessary dependency *must* be listed under 'core'
 REQUIREMENTS: dict = {
     'core': [
         "pyqt5",
         "pyqtgraph",
-        "pyjapc",
+        "pyjapc>=2.0.7",  # Necessary because of comrad atm
         "papc",  # For the sandbox mode
-        "comrad",  # Fot the CLogBox  - temporary, until CLogBox migrates to accwidgets!
+        "be-bi-application-frame @ git+https://:@gitlab.cern.ch:8443/szanzott/be-bi-application-frame.git",
+        "comrad",
         "accwidgets",  # For the plots
     ],
     'test': [
@@ -37,17 +36,17 @@ REQUIREMENTS: dict = {
     'dev': [
     ],
     'doc': [
-        'sphinx',
+        # 'sphinx',
     ],
 }
 
 setup(
-    name='be-bi-application-frame',  # MODIFY: your application name
+    name='be-bi-pyqt-template',  # MODIFY: your application name
     version="0.0.1.dev1",  # MODIFY: the latest version of this package
 
     author='Sara Zanzottera',  # MODIFY: Your name
     author_email='sara.zanzottera@cern.ch',  # MODIFY: Your email
-    description='BE BI Application Frame',  # MODIFY: Your project's short description
+    description='BE BI PyQt Template',  # MODIFY: Your project's short description
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     url='',
@@ -70,12 +69,14 @@ setup(
         # The 'all' extra is the union of all requirements.
         'all': [req for reqs in REQUIREMENTS.values() for req in reqs],
     },
-
+    dependency_links=[
+        'git+https://:@gitlab.cern.ch:8443/szanzott/be-bi-application-frame.git#egg=be-bi-application-frame'
+    ],
     entry_points={
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
-            # This means: 'empty-application-frame' launches "be_bi_application_frame/main.py:main()"
-            'empty-application-frame=be_bi_application_frame.main:main',
+            # This means: 'empty-application-frame' launches "be_bi_pyqt_template/main.py:main()"
+            'empty-application-frame=be_bi_pyqt_template.main:main',
         ],
     },
 )

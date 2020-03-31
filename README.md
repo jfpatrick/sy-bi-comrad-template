@@ -2,8 +2,7 @@
 
 This is the repository for the BE-BI PyQt5 Template code.
 
-
-It can be used tTo bootstrap a PyQt GUI project: the code provides a basic 
+It can be used to bootstrap a PyQt GUI project: the code provides a basic
 architecture that you only have to extend with your own interface and logic. 
 
 It provides:
@@ -43,7 +42,7 @@ empty-application-frame
 
 You should see the frame with a dummy application in the center, like this:
 
-![](images/application-frame.png)
+![](images/pyqt-template.png)
 
 Or a smaller window with an error. In the latter case, please report the error 
 to the maintainers.
@@ -94,21 +93,21 @@ is.
 You can learn more about Python packaging in 
 [here](https://packaging.python.org/).
 
-#### `be_bi_application_frame/main.py`
+#### `be_bi_pyqt_template/main.py`
 Application's entry point. You can edit the main function to load your GUI, 
 as specified in the comments of the file itself, but this file should contain 
 no more than the small function that start the event loop. 
 The rest of the logic will go in the other folders.
 
-#### `be_bi_application_frame/widgets`
+#### `be_bi_pyqt_template/widgets`
 This contains the components of your application. In an MVP model, these are 
-the Presenters: instantiate the Views (see `be_bi_application_frame/resources`)
-and wire them to the Models (see `be_bi_application_frame/models`), 
+the Presenters: instantiate the Views (see `be_bi_pyqt_template/resources`)
+and wire them to the Models (see `be_bi_pyqt_template/models`),
 acting as an intermediary when required.
 
 In this specific case, the `ApplicationFrame` `QWidget` lives in there.
 
-#### `be_bi_application_frame/resources`
+#### `be_bi_pyqt_template/resources`
 This folder contains multiple entities, all related to the View from an 
 MVP perspective. They are:
 
@@ -131,7 +130,7 @@ In this folder, you should modify the `*.ui` and `*.qrc` files only with
 QtDesigner (unless you *really* know what you're doing) and load the Views 
 into the Presenters (`/widgets/` folder) by importing the `ui_*.py` files.
 
-#### `be_bi_application_frame/models`
+#### `be_bi_pyqt_template/models`
 This folder contains the Models of your application. In the dummy application,
 the only Models required are the sources of data for the plots, but they
 can be any object connecting to the control system, like PyJAPC instances, 
@@ -140,7 +139,7 @@ NXCALS connections, etc...
 Models should send their data to the Views by emitting Signals that match
 corresponding Slots in the View or Presenter.
 
-#### `be_bi_application_frame/models/papc_setup`
+#### `be_bi_pyqt_template/models/papc_setup`
 This folder contains a barebone papc setup to sandbox your application. papc
 is a library that can trick you application into believing it's connecting to
 the control system, while it's receiving simulated data instead.
@@ -149,7 +148,7 @@ papc is also an interesting option for meaningful and through GUI tests. Read
 more about it on the 
 [Acc-Py wikis](https://wikis.cern.ch/display/ACCPY/papc+-+a+pure+Python+PyJapc+offline+simulator).
 
-#### `be_bi_application_frame/tests`
+#### `be_bi_pyqt_template/tests`
 This folder contains the automated tests for your app. It already contains some
 basic tests to ensure your setup is correct, and they will be run on GitLab CI
 every time you push code to your repository. 
@@ -172,7 +171,7 @@ python -m pytest --vv --log-cli-level=DEBUG
 ```
 
 This project comes with papc already configured to simulate a dummy device (see 
-`be_bi_application_frame/models/papc_setup`). Please replace with a meaningful 
+`be_bi_pyqt_template/models/papc_setup`). Please replace with a meaningful
 description of your own datasources (see the
 [Acc-Py wikis](https://wikis.cern.ch/display/ACCPY/papc+-+a+pure+Python+PyJapc+offline+simulator)).
 

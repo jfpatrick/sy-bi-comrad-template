@@ -6,14 +6,14 @@ from PyQt5.QtWidgets import QApplication
 import pyjapc
 from accwidgets.graph import UpdateSource, PointData
 
-from be_bi_application_frame.models.papc_setup.papc_devices import setup_papc_devices
+from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
 
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 # Remove this line to connect to real devices
 pyjapc.PyJapc = setup_papc_devices()
 
 
-class DummyAppModel(QObject):
+class ExampleModel(QObject):
 
     def __init__(self):
         super(QObject, self).__init__()
