@@ -20,7 +20,7 @@ def test_can_use_qt(qtbot):
     assert main_window is not None
 
 
-def test_can_use_pyjapc(mock_pyjapc):
+def test_can_use_pyjapc():
     """ Makes sure there are no problems mocking PyJapc, unrelated with the actual application. """
     japc_ppm = pyjapc.PyJapc()
     japc_ppm.setSelector(timingSelector="LHC.USER.ALL")
@@ -30,13 +30,13 @@ def test_can_use_pyjapc(mock_pyjapc):
     assert value == math.sin(1/(2/30))*3
 
 
-def test_can_use_pyjapc_within_qt(mock_pyjapc, qtbot):
+def test_can_use_pyjapc_within_qt(qtbot):
     """ Makes sure there are no problems with mocking PyJapc within a Qt application. """
     class TestWindow(QTabWidget):
         def __init__(self, parent=None):
             super(TestWindow, self).__init__(parent)
             self.resize(1366, 900)
-            test_can_use_pyjapc(mock_pyjapc)
+            test_can_use_pyjapc()
             self.setWindowTitle("Test Window")
 
     main_window = TestWindow()
