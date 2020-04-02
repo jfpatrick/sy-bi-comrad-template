@@ -11,3 +11,7 @@ source venv/bin/activate
 git clone https://gitlab.cern.ch/szanzott/be-bi-pyqt-template.git wizard
 cd wizard
 python wizard.py
+
+# Move into the only available folder and install
+cd */
+pip install -e .
