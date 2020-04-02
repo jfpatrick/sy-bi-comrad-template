@@ -75,8 +75,9 @@ setup(
     entry_points={
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
-            # This means: 'empty-application-frame' launches "be_bi_pyqt_template/main.py:main()"
-            'empty-application-frame=be_bi_pyqt_template.main:main',
+            # This means: 'example-app' launches "be_bi_pyqt_template/main.py:main()"
+            # 'example-app=be_bi_pyqt_template.main:main',
+            'setup-pyqt5-project=wizard:main'
         ],
     },
 )
