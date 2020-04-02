@@ -8,5 +8,8 @@ acc-py venv venv
 source venv/bin/activate
 
 # Install template code and run wizard
-pip install "git+https://:@gitlab.cern.ch:8443/szanzott/be-bi-pyqt-template.git"  # Replace with package name once released!
-setup-pyqt5-project
+git clone --depth 1 --no-checkout https://gitlab.cern.ch/szanzott/be-bi-pyqt-template.git wizard
+cd wizard
+git checkout master -- wizard.py
+
+python wizard.py

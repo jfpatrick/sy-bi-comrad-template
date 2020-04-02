@@ -77,7 +77,6 @@ setup(
             # MODIFY: remove this line and add a pointer to the startup function of your app.
             # This means: 'example-app' launches "be_bi_pyqt_template/main.py:main()"
             # 'example-app=be_bi_pyqt_template.main:main',
-            'setup-pyqt5-project=wizard:main'
         ],
     },
 )
