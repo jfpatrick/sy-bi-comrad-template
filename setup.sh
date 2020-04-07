@@ -69,7 +69,7 @@ mv wizard $project_name
 
 # Make replacements
 project_name_underscores="${project_name/-/_}"
-grep -rl "be-bi-pyqt-template" . | xargs sed -i "s/be-bi-pyqt-template/${project_name-}/g"
+grep -rl "be-bi-pyqt-template" . | xargs sed -i "s/be-bi-pyqt-template/${project_name}/g"
 grep -rl "be_bi_pyqt_template" . | xargs sed -i "s/be_bi_pyqt_template/${project_name_underscores}/g"
 cd $project_name
 sed -i "s/BE BI PyQt Template/${project_desc}/g" setup.py
@@ -83,18 +83,7 @@ source venv/bin/activate
 
 # Install with pip
 echo "=> The project is being installed..."
-if pip install -e . -q #|
-#    while IFS= read -r line
-#    do
-#       echo "Processing line -- " $line
-#       if [[ $line =~ ^(Collecting.*|Requirement.*|Installing.*)$ ]]; then
-#          $line = sed -E "s/Requirement already satisfied: (.*) in .*/ - Installing \1/g" $line
-#          $line = sed "s/Collecting/ - Installing/g" $line
-#          echo $line
-#       fi
-#    done
-
-then
+if pip install -e . -q; then
 
   # Success!
   echo "_________________________________________________________________________"
