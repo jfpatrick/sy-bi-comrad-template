@@ -22,7 +22,7 @@ REQUIREMENTS: dict = {
         "pyqtgraph",
         "pyjapc>=2.0.7",  # Necessary because of comrad atm
         "papc",  # For the sandbox mode
-        "be-bi-application-frame @ git+https://:@gitlab.cern.ch:8443/szanzott/be-bi-application-frame.git",
+        "be-bi-application-frame",
         "comrad",
         "accwidgets",  # For the plots
     ],
@@ -76,7 +76,7 @@ setup(
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
             # This means: 'example-app' launches "be_bi_pyqt_template/main.py:main()"
-            # 'example-app=be_bi_pyqt_template.main:main',
+            'example-app=be_bi_pyqt_template.main:main',
         ],
     },
 )
