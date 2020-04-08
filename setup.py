@@ -73,7 +73,7 @@ setup(
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
             # This means: 'example-app' launches "be_bi_pyqt_template/main.py:main()"
-            'example-app=be_bi_pyqt_template.main:main',
+            'be-bi-pyqt-template=be_bi_pyqt_template.main:main',
         ],
     },
 )

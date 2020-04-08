@@ -6,7 +6,7 @@ before_script:
   - source /opt/venv/bin/activate
   - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf https://:@gitlab.cern.ch:8443
 
-gui_tests:
+GUI Tests:
   image: gitlab-registry.cern.ch/acc-co/accsoft/gui/accsoft-gui-pyqt-distro/acc-py-pyqt:ci
   script:
     - pip install .[core,test]
@@ -22,3 +22,23 @@ gui_tests:
     expire_in: 1 month
     reports:
       junit: report.xml
+
+
+# A push of the source distribution to the acc-py PyPI, manual
+# Remember: it requires you to go on your project's GitLab page,
+# under CI/CD > Pipelines and trigger it manually.
+# Note that to release successfully you have to increase the version
+# number. if it's a dev release, add a .dev<N> at the end of the
+# version to release.
+Manual Release:
+  extends: ._acc_py_release_sdist_base
+  when: manual
+  before_script:
+    - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf https://:@gitlab.cern.ch:8443
+
+
+# A push of the source distribution to the acc-py PyPI, on tag
+Tag Release:
+  extends: ._acc_py_release_sdist
+  before_script:
+    - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf https://:@gitlab.cern.ch:8443
