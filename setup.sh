@@ -92,32 +92,34 @@ done
 #rm -rf wizard/*.egg-info
 echo -e "   ${GREEN}Done${NC}"
 
-# Replace eventual dashes with underscores
-project_name_underscores="${project_name/-/_}"
+# Generate various project names variations
+project_name_underscores="${project_name//-/_}"
+project_name_spaces="${project_name//-/ }"
+project_name_capitals=$(sed -e "s/\b\(.\)/\u\1/g" <<< $project_name_spaces)
 
 # Rename tree root
 echo -e "${GREEN}=>${NC} Creating project under $project_name/...  "
 mv template/be_bi_pyqt_template template/$project_name_underscores
 mv template $project_name
 rm -r $project_name/images
+rm $project_name/setup.sh
 echo -e "   ${GREEN}Done${NC}"
 
 # Replace strings into files
 echo -e "${GREEN}=>${NC} Applying customizations...  "
 grep -rl "be-bi-pyqt-template" . | xargs sed -i "s/be-bi-pyqt-template/${project_name}/g"
 grep -rl "be_bi_pyqt_template" . | xargs sed -i "s/be_bi_pyqt_template/${project_name_underscores}/g"
-cd $project_name
-sed -i "s/BE BI PyQt Template/${project_desc}/g" setup.py
-sed -i "s/Sara Zanzottera/${project_author}/g" setup.py
-sed -i "s/sara.zanzottera@cern.ch/${project_email}/g" setup.py
+grep -rl "BE BI PyQt Template" . | xargs sed -i "s/BE BI PyQt Template/${project_name_capitals}/g"
+grep -rl "BE BI PyQt Template Code" . | xargs sed -i "s/BE BI PyQt Template Code/${project_desc}/g"
+grep -rl "Sara Zanzottera" . | xargs sed -i "s/Sara Zanzottera/${project_author}/g"
+grep -rl "sara.zanzottera@cern.ch" . | xargs sed -i "s/sara.zanzottera@cern.ch/${project_email}/g"
 echo -e "   ${GREEN}Done${NC}"
 
 # Write out README
 echo -e "${GREEN}=>${NC} Preparing README...  "
+cd $project_name
 rm README.md
 mv README-template.md README.md
-project_name_spaces="${project_name/-/ }"
-project_name_capitals=$(sed -e "s/\b\(.\)/\u\1/g" <<< $project_name_spaces)
 sed -i "s/Project Name/${project_name_capitals}/g" README.md
 sed -i "s/_Here goes the project description_/${project_desc}/g" README.md
 sed -i "s/project-name/${project_name}/g" README.md

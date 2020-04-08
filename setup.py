@@ -46,7 +46,7 @@ setup(
 
     author="Sara Zanzottera",  # Your name
     author_email="sara.zanzottera@cern.ch",  # Your email
-    description="BE BI PyQt Template",  # Your project's short description
+    description="BE BI PyQt Template Code",  # Your project's short description
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     url='',
