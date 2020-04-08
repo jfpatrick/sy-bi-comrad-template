@@ -41,12 +41,12 @@ REQUIREMENTS: dict = {
 }
 
 setup(
-    name='be-bi-pyqt-template',  # MODIFY: your application name
-    version="0.0.1.dev1",  # MODIFY: the latest version of this package
+    name='be-bi-pyqt-template',  # Your application name
+    version="0.0.1.dev1",  # The latest version of this package
 
-    author='Sara Zanzottera',  # MODIFY: Your name
-    author_email='sara.zanzottera@cern.ch',  # MODIFY: Your email
-    description='BE BI PyQt Template',  # MODIFY: Your project's short description
+    author="Sara Zanzottera",  # Your name
+    author_email="sara.zanzottera@cern.ch",  # Your email
+    description="BE BI PyQt Template",  # Your project's short description
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     url='',
@@ -69,9 +69,6 @@ setup(
         # The 'all' extra is the union of all requirements.
         'all': [req for reqs in REQUIREMENTS.values() for req in reqs],
     },
-    dependency_links=[
-        'git+https://:@gitlab.cern.ch:8443/szanzott/be-bi-application-frame.git#egg=be-bi-application-frame'
-    ],
     entry_points={
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
