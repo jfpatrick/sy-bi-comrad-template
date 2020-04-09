@@ -39,6 +39,6 @@ Manual Release:
 
 # A push of the source distribution to the acc-py PyPI, on tag
 Tag Release:
-  extends: ._acc_py_release_sdist
+  extends: .acc_py_release_sdist
   before_script:
     - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf https://:@gitlab.cern.ch:8443

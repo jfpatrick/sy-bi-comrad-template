@@ -1,7 +1,7 @@
 """
-setup.py for be-bi-application-frame.
+setup.py for be-bi-pyqt-template.
 
-If you are using this code as a bolierplate, remember to
+If you are using this code as a boilerplate, remember to
 update the information contained here to match your project!
 
 For reference see
@@ -72,7 +72,7 @@ setup(
     entry_points={
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
-            # This means: 'example-app' launches "be_bi_pyqt_template/main.py:main()"
+            # This means: 'be-bi-pyqt-template' launches "be_bi_pyqt_template/main.py:main()"
             'be-bi-pyqt-template=be_bi_pyqt_template.main:main',
         ],
     },

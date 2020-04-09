@@ -79,3 +79,7 @@ re-run the tests as:
 ```shell
 python -m pytest --vv --log-cli-level=DEBUG
 ```
+
+## Support
+
+To get help, please contact the project author at this email address: author@cern.ch

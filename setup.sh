@@ -109,8 +109,8 @@ echo -e "   ${GREEN}Done${NC}"
 echo -e "${GREEN}=>${NC} Applying customizations...  "
 grep -rl "be-bi-pyqt-template" . | xargs sed -i "s/be-bi-pyqt-template/${project_name}/g"
 grep -rl "be_bi_pyqt_template" . | xargs sed -i "s/be_bi_pyqt_template/${project_name_underscores}/g"
-grep -rl "BE BI PyQt Template" . | xargs sed -i "s/BE BI PyQt Template/${project_name_capitals}/g"
 grep -rl "BE BI PyQt Template Code" . | xargs sed -i "s/BE BI PyQt Template Code/${project_desc}/g"
+grep -rl "BE BI PyQt Template" . | xargs sed -i "s/BE BI PyQt Template/${project_name_capitals}/g"
 grep -rl "Sara Zanzottera" . | xargs sed -i "s/Sara Zanzottera/${project_author}/g"
 grep -rl "sara.zanzottera@cern.ch" . | xargs sed -i "s/sara.zanzottera@cern.ch/${project_email}/g"
 echo -e "   ${GREEN}Done${NC}"
@@ -138,20 +138,24 @@ echo -e "${GREEN}=>${NC} Installing the project...  "
 if pip install -e . -qqqq; then
 
   # Success!
-  echo -e "   ${GREEN}Done"
-  echo -e "_________________________________________________________________________${NC}\n"
+  echo -e "   ${GREEN}Done${NC}"
+  echo -e "${GREEN}_________________________________________________________________________${NC}\n"
   echo -e "${GREEN}=>${NC} New project installed successfully!"
   echo -e "${GREEN}=>${NC} Please make sure all went well by typing '$project_name' in the console"
+  echo -e "${GREEN}_________________________________________________________________________${NC}\n"
+  echo -e "${GREEN}=>${NC} - Hint: type 'pyqt-manager --help' to see more workflows."
   # remove yourself
-  rm setup.sh
+  rm ../setup.sh
 
 else
 
   # Failure
-  echo -e "   ${RED}Fail!"
-  echo -e "_________________________________________________________________________${NC}\n"
+  echo -e "   ${RED}Fail!${NC}"
+  echo -e "${RED}_________________________________________________________________________${NC}\n"
   echo -e "${RED}=> Error!${YELLOW} New project failed to install ${NC}"
   echo -e "Please execute ${YELLOW}pip install -e $project_name${NC} and, if it fails, send the log to the maintainers."
+  echo -e "${RED}_________________________________________________________________________${NC}\n"
+
 fi
 
 # Go back to the dir we started from
