@@ -19,6 +19,8 @@ def main():
     try:
         example_widget = ExampleWidget(parent=window)
         example_widget.setWindowIcon(QIcon('resources/images/CERN_logo.png'))
+        window.setCentralWidget(example_widget)
+        window.setWindowTitle(APPLICATION_NAME)
 
     except Exception as e:
         dialog = QMessageBox()
@@ -28,8 +30,6 @@ def main():
         window.deleteLater()
         return
 
-    window.setCentralWidget(example_widget)
-    window.setWindowTitle(APPLICATION_NAME)
     window.show()
     sys.exit(app.exec_())
 
