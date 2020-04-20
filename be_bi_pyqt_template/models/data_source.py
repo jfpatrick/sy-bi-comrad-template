@@ -78,8 +78,4 @@ class SinglePointSource(UpdateSource):
             x=datetime.now().timestamp(),
             y=float(value)
         )
-        # ### Small workaround for passing QObject derived classes through signals
-        new_data.moveToThread(QApplication.instance().thread())
-        new_data.setParent(self)
-        # ### End of workaround
         self.sig_new_data[PointData].emit(new_data)
