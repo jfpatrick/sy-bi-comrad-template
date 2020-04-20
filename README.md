@@ -22,7 +22,7 @@ See below for a more detailed explanation of all the features.
 ## Getting started
 
 #### Install
-Assuming you installed `pyqt-manager` ([see here](https://gitlab.cern.ch/szanzott/be-bi-pyqt-project-manager)),
+Assuming you installed `pyqt-manager` ([see here](https://gitlab.cern.ch/bisw-python/be-bi-pyqt-project-manager)),
 type:
 ```
 pyqt-manager create-project
@@ -45,7 +45,7 @@ To obtain an empty template (without the demo application), type:
 pyqt-manager create-project --no-demo
 ```
 The PyQt Project Manager offers a lot of other functionality related to project creation and management:
-head over to [its own page](https://gitlab.cern.ch/szanzott/be-bi-pyqt-project-manager) for more
+head over to [its own page](https://gitlab.cern.ch/bisw-python/be-bi-pyqt-project-manager) for more
 information, or simply type:
 ```
 pyqt-manager --help
