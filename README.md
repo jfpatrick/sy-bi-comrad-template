@@ -6,7 +6,6 @@ It can be used to bootstrap a PyQt GUI project: the code provides a basic
 architecture that you only have to extend with your own interface and logic. 
 
 It provides:
-- A command-line wizard to help you get started
 - A sane folder structure for your code, based on the MVP architecture.
 - A test setup ready for unit tests and GUI tests (based on `pytest-qt`)
 - A minimal simulation environment for your tests (based on 
@@ -22,24 +21,17 @@ See below for a more detailed explanation of all the features.
 
 ## Getting started
 
-#### Install - TO REVIEW
-Assuming Python 3.6 is installed and `acc-pyqt` is active in your shell
-([more info here](https://wikis.cern.ch/display/ACCPY/PyQt+distribution)), type:
+#### Install
+Assuming you installed `pyqt-manager` ([see here](https://gitlab.cern.ch/szanzott/be-bi-pyqt-project-manager)),
+type:
 ```
-git clone https://:@gitlab.cern.ch:8443/szanzott/be-bi-application-frame.git
-cd be-bi-application-frame/
-source /acc/local/share/python/acc-py-pyqt/setup.sh
-acc-py venv venv
-source venv/bin/activate
-pip install -e .[all]
+pyqt-manager create-project
 ```
+This will start a wizard that will give you a customized copy of this template.
 
 #### Start
-The application can already be started. To start it, type:
-
-```
-empty-application-frame
-```
+The application can already be started. To start it, type in the console the name of your project
+(the one you gave to `pyqt-manager` while creating the project).
 
 You should see the frame with a dummy application in the center, like this:
 
@@ -48,10 +40,20 @@ You should see the frame with a dummy application in the center, like this:
 Or a smaller window with an error. In the latter case, please report the error 
 to the maintainers.
 
+To obtain an empty template (without the demo application), type:
+```
+pyqt-manager create-project --no-demo
+```
+The PyQt Project Manager offers a lot of other functionality related to project creation and management:
+head over to [its own page](https://gitlab.cern.ch/szanzott/be-bi-pyqt-project-manager) for more
+information, or simply type:
+```
+pyqt-manager --help
+```
+
 ## Usage
-This code base is meant to be used as a boilerplate to get you started on a new
-PyQt GUI without too much overhead. Here is a description of what every file
-does and when/how you are encouraged to modify it.
+This code base is meant to be used as a boilerplate to get you started on a new Python GUI.
+Here is a description of what every file does and when/how you are encouraged to modify it.
 
 #### `.gitignore`
 Typical .gitignore file that excludes most Python artifacts. You can add your
@@ -84,16 +86,20 @@ information about what your project is, how to execute it, who's
 the author/maintainer and any precautions to take when running/debugging 
 (is this GUI operational?)
 
+NOTE: `pyqt-manager` will create you a standard README.ms with some basic information.
+You're still encouraged to expand it with a meaningful description of your project's
+goals and functionalities.
+
 #### `setup.py`
 This is the file that define your application as a Python package. You're 
 strongly encourage to develop your projects as packages instead of simple
 script, for easier maintainability and deployment.
 
-The file contains comments on what you should change and what can be left as it 
-is.
-
 You can learn more about Python packaging in 
 [here](https://packaging.python.org/).
+
+NOTE: `pyqt-manager` will partially populate this file with proper values,
+but you're always free to modify it, especially to add your project's dependencies.
 
 #### `be_bi_pyqt_template/main.py`
 Application's entry point. You can edit the main function to load your GUI, 
@@ -101,7 +107,7 @@ as specified in the comments of the file itself, but this file should contain
 no more than the small function that starts the event loop (and at most do
 some error handling). The rest of the logic will go in the other folders.
 
-In this example, `ExampleWidget` is instantiated and loaded here.
+In the demo application, `ExampleWidget` is instantiated and loaded here.
 
 #### `be_bi_pyqt_template/widgets`
 This contains the components of your application. In an MVP model, these are 
@@ -109,7 +115,7 @@ the Presenters: instantiate the Views (see `be_bi_pyqt_template/resources`)
 and wire them to the Models (see `be_bi_pyqt_template/models`),
 acting as an intermediary when required.
 
-In this specific case, `ExampleWidget` lives in there.
+In the demo application, `ExampleWidget` lives in there.
 
 #### `be_bi_pyqt_template/resources`
 This folder contains multiple entities, all related to the static GUI's
@@ -146,7 +152,7 @@ NXCALS connections, etc...
 Models should send their data to the Views by emitting Signals that match
 corresponding Slots in the View or Presenter.
 
-In the example application, you can see how the `ExampleModel` class does mostly 
+In the demo application, you can see how the `ExampleModel` class does mostly
 PyJapc SET operations, while the plots' models retrieve data.
 
 #### `be_bi_pyqt_template/models/papc_setup`
@@ -165,7 +171,7 @@ This folder contains the automated tests for your app. It already contains some
 basic tests to ensure your setup is correct, and they will be run on GitLab CI
 every time you push code to your repository. 
 
-In this example, it tests the example application, making sure the SET command
+In this case, it tests the demo application, making sure the SET command
 have an actual effect on the simulated device, and other things.
 
 You can run your tests locally by executing:
@@ -175,7 +181,7 @@ python -m pytest
 
 To see the coverage report, type:
 ```
-python -m pytest --cov=be-bi-application-frame
+python -m pytest --cov=<your project's name>
 ```
 
 If the tests hang, probably Qt is swallowing errors without exiting. Note that
@@ -193,7 +199,7 @@ If you are a developer and want to contribute, or you're taking over this projec
 #### Setup
 Do the following every time you begin working:
 ```
-cd be-bi-application-frame/
+cd <your project's name>/
 git pull
 source activate.sh
 ```
