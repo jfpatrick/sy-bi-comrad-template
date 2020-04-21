@@ -6,7 +6,10 @@ from PyQt5.QtGui import QIcon
 
 
 def test_can_use_qt(qtbot):
-    """ Makes sure there are no problems with Qt in general, unrelated with the actual application. """
+    """
+    Makes sure there are no problems with Qt in general.
+    Unrelated to the actual application.
+    """
     class TestWindow(QTabWidget):
         def __init__(self, parent=None):
             super(TestWindow, self).__init__(parent)
@@ -21,8 +24,13 @@ def test_can_use_qt(qtbot):
 
 
 def test_can_use_pyjapc():
-    """ Makes sure there are no problems mocking PyJapc, unrelated with the actual application. """
+    """
+    Makes sure there are no problems mocking PyJapc with papc.
+    Unrelated to the actual application.
+    """
     japc_ppm = pyjapc.PyJapc()
+    # Make sure these selectors and properties and fields are available in the mocked devices,
+    # otherwise change them.
     japc_ppm.setSelector(timingSelector="LHC.USER.ALL")
     japc_ppm.setParam("TEST_DEVICE/Settings", {'theta': 1, 'amplitude_sin': 3, 'period_sin': 2})
     value = japc_ppm.getParam("TEST_DEVICE/Acquisition#sin")
@@ -31,7 +39,10 @@ def test_can_use_pyjapc():
 
 
 def test_can_use_pyjapc_within_qt(qtbot):
-    """ Makes sure there are no problems with mocking PyJapc within a Qt application. """
+    """
+    Makes sure there are no problems with mocking PyJapc within a Qt application.
+    Unrelated to the actual application.
+    """
     class TestWindow(QTabWidget):
         def __init__(self, parent=None):
             super(TestWindow, self).__init__(parent)
