@@ -69,7 +69,7 @@ Note that the tests will automatically regenerate the views before running.
 
 To see the coverage report, type:
 ```shell
-python -m pytest --cov=project-name
+python -m pytest --cov=project_name
 ```
 
 If the tests hang, probably Qt is swallowing errors without exiting. Note that
