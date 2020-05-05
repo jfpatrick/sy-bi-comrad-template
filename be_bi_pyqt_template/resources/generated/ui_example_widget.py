@@ -29,7 +29,6 @@ class Ui_TabWidget(object):
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
         self.scrolling_plot = ScrollingPlotWidget(self.first_tab)
-        self.scrolling_plot.setMaximumSize(QtCore.QSize(700, 400))
         self.scrolling_plot.setStyleSheet("")
         self.scrolling_plot.setObjectName("scrolling_plot")
         self.verticalLayout.addWidget(self.scrolling_plot)
@@ -86,7 +85,6 @@ class Ui_TabWidget(object):
         self.label_5.setObjectName("label_5")
         self.verticalLayout_5.addWidget(self.label_5)
         self.cyclic_plot = CyclicPlotWidget(self.second_tab)
-        self.cyclic_plot.setMaximumSize(QtCore.QSize(700, 400))
         self.cyclic_plot.setObjectName("cyclic_plot")
         self.verticalLayout_5.addWidget(self.cyclic_plot)
         self.cyclic_plot_controls = QtWidgets.QHBoxLayout()
@@ -169,7 +167,7 @@ class Ui_TabWidget(object):
         TabWidget.addTab(self.tab, "")
 
         self.retranslateUi(TabWidget)
-        TabWidget.setCurrentIndex(0)
+        TabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(TabWidget)
 
     def retranslateUi(self, TabWidget):
