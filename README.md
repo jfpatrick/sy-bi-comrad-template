@@ -22,16 +22,16 @@ See below for a more detailed explanation of all the features.
 ## Getting started
 
 #### Install
-Assuming you installed `pyqt-manager` ([see here](https://gitlab.cern.ch/bisw-python/be-bi-pyqt-project-manager)),
+Assuming you have access to `bipy-gui-manager` ([see here](https://gitlab.cern.ch/bisw-python/bipy-gui-manager)),
 type:
 ```
-pyqt-manager create-project
+bipy-gui-manager create-project
 ```
 This will start a wizard that will give you a customized copy of this template.
 
 #### Start
 The application can already be started. To start it, type in the console the name of your project
-(the one you gave to `pyqt-manager` while creating the project).
+(the one you gave to `bipy-gui-manager` while creating the project).
 
 You should see the frame with a dummy application in the center, like this:
 
@@ -42,13 +42,7 @@ to the maintainers.
 
 To obtain an empty template (without the demo application), type:
 ```
-pyqt-manager create-project --no-demo
-```
-The PyQt Project Manager offers a lot of other functionality related to project creation and management:
-head over to [its own page](https://gitlab.cern.ch/bisw-python/be-bi-pyqt-project-manager) for more
-information, or simply type:
-```
-pyqt-manager --help
+bipy-gui-manager create-project --no-demo
 ```
 
 ## Usage
