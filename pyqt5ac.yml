@@ -1,5 +1,5 @@
 variables:
-  BASEDIR : "be_bi_application_frame"
+  BASEDIR : "be_bi_pyqt_template"
 ioPaths:
   -
     - "%%BASEDIR%%/resources/*.ui"
