@@ -1,3 +1,6 @@
+# Generated Python files
+be_bi_pyqt_template/resources/generated/*.py
+
 # PyCharm folders
 .idea/
 

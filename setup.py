@@ -21,12 +21,12 @@ REQUIREMENTS: dict = {
         "pyqt5",
         "pyqtgraph",
         "pyjapc>=2.0.7",  # Necessary because of comrad atm
-        "papc",  # For the sandbox mode
         "be-bi-application-frame",
-        "comrad",
+        "comrad",  # Provides the CLogDisplay
         "accwidgets",  # For the plots
     ],
     'test': [
+        "pyqt5ac",  # To automate the compilation of .ui and .qrc files
         "pytest",
         "pytest-qt",
         "pytest-cov",
@@ -36,7 +36,8 @@ REQUIREMENTS: dict = {
     'dev': [
     ],
     'doc': [
-        # 'sphinx',
+        'sphinx',
+        'acc-py-sphinx',
     ],
 }
 
