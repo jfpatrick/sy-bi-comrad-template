@@ -19,7 +19,7 @@ with (HERE / 'README.md').open('rt') as fh:
 REQUIREMENTS: dict = {
     'core': [
         "pyqt5",
-        "pyqt5ac",  # To automate the compilation of .ui and .qrc files
+        "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "pyqtgraph",
         "pyjapc>=2.0.7",  # Necessary because of comrad atm
         "be-bi-application-frame",

@@ -1,9 +1,5 @@
-import os
 import sys
 import logging
-import pyqt5ac
-# Generate the code from .ui and .qrc files in case they are missing or outdated
-pyqt5ac.main(config=os.path.join(os.path.dirname(os.path.realpath(__file__)), 'pyqt5ac.yml'))
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMessageBox
