@@ -2,14 +2,13 @@ include:
  - project: acc-co/devops/python/acc-py-devtools
    file: acc_py_devtools/templates/gitlab-ci/python.yml
 
-before_script:
- - source /opt/venv/bin/activate
- - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf
-   https://:@gitlab.cern.ch:8443
 
 GUI Tests:
   image: gitlab-registry.cern.ch/acc-co/accsoft/gui/accsoft-gui-pyqt-distro/acc-py-pyqt:ci
   script:
+    - source /opt/venv/bin/activate
+    - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cern.ch".insteadOf
+        https://:@gitlab.cern.ch:8443
    - pip install .[core,test]
    - cd be_bi_pyqt_template
    - pyqt5ac --config pyqt5ac.yml
