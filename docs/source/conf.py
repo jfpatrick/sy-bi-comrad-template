@@ -40,7 +40,7 @@ exclude_patterns = []
 #
 html_theme = "acc_py"
 html_title = "BE-BI PyQt Template"
-html_favicon = '../../images/pyqt-logo.png'
+html_favicon = '../../images/favicon.png'
 
 # Static files directories
 html_static_path = ["../../images"]
