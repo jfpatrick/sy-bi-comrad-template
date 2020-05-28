@@ -1,11 +1,11 @@
 import datetime
 
-import tests
+import be_bi_pyqt_template
 
 
 project = "be-bi-pyqt-template"
 author = "Sara Zanzottera"
-version = tests.__version__
+version = be_bi_pyqt_template.__version__
 
 copyright = "{0}, CERN".format(datetime.datetime.now().year)
 
