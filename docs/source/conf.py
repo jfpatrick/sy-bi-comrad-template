@@ -1,9 +1,9 @@
 import datetime
-
+import pkg_resources
 
 project = "be-bi-pyqt-template"
 author = "Sara Zanzottera"
-#version = be_bi_pyqt_template.__version__
+version = pkg_resources.get_distribution("be_bi_pyqt_template").version
 
 copyright = "{0}, CERN".format(datetime.datetime.now().year)
 

@@ -27,10 +27,10 @@ GUI Tests:
 
 
 # A dev build of the documentation, made available through cern.ch/acc-py.
-build_docs:
+Build Docs:
   extends: .acc_py_build_docs
 
 
 # A release build of the documentation, made available through cern.ch/acc-py.
-build_docs_on_tag:
+Build Docs On Tag:
   extends: .acc_py_build_docs_on_tag
