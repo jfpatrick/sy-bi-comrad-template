@@ -1,11 +1,10 @@
-variables:
-  BASEDIR : "be_bi_pyqt_template"
 ioPaths:
   -
-    - "%%BASEDIR%%/resources/*.ui"
-    - "%%BASEDIR%%/resources/generated/ui_%%FILENAME%%.py"
+    - "resources/*.ui"
+    - "resources/generated/ui_%%FILENAME%%.py"
   -
-    - "%%BASEDIR%%/resources/*/*.qrc"
-    - "%%BASEDIR%%/resources/generated/%%FILENAME%%_rc.py"
+    - "resources/*/*.qrc"
+    - "resources/generated/%%FILENAME%%_rc.py"
 uic_options: --from-imports
+init_package: True
 force: False
