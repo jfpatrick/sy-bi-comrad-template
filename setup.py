@@ -19,6 +19,7 @@ with (HERE / 'README.md').open('rt') as fh:
 REQUIREMENTS: dict = {
     'core': [
         "pyqt5",
+        "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "pyqtgraph",
         "pyjapc>=2.0.7",  # Necessary because of comrad atm
         "be-bi-application-frame",
@@ -26,7 +27,6 @@ REQUIREMENTS: dict = {
         "accwidgets",  # For the plots
     ],
     'test': [
-        "pyqt5ac",  # To automate the compilation of .ui and .qrc files
         "pytest",
         "pytest-qt",
         "pytest-cov",
@@ -60,6 +60,7 @@ setup(
     ],
 
     install_requires=REQUIREMENTS['core'],
+    include_package_data=True,
     extras_require={
         **REQUIREMENTS,
         # The 'dev' extra is the union of 'test' and 'doc', with an option
