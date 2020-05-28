@@ -19,11 +19,11 @@ with (HERE / 'README.md').open('rt') as fh:
 REQUIREMENTS: dict = {
     'core': [
         "pyqt5",
+        "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "pyqtgraph",
         "pyjapc>=2.0.7",  # Necessary because of comrad atm
-        "papc",  # For the sandbox mode
         "be-bi-application-frame",
-        "comrad",
+        "comrad",  # Provides the CLogDisplay
         "accwidgets",  # For the plots
     ],
     'test': [
@@ -36,7 +36,8 @@ REQUIREMENTS: dict = {
     'dev': [
     ],
     'doc': [
-        # 'sphinx',
+        'sphinx',
+        'acc-py-sphinx',
     ],
 }
 
@@ -59,6 +60,7 @@ setup(
     ],
 
     install_requires=REQUIREMENTS['core'],
+    include_package_data=True,
     extras_require={
         **REQUIREMENTS,
         # The 'dev' extra is the union of 'test' and 'doc', with an option

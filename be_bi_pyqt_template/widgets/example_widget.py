@@ -1,3 +1,4 @@
+import os
 import logging
 
 from PyQt5.QtWidgets import QTabWidget, QSpinBox
