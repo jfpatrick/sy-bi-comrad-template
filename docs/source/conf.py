@@ -39,7 +39,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = "acc_py"
-html_title = "BE-BI PyQt Template"
+html_title = "BE BI PyQt Template"
 html_favicon = '../../images/favicon.png'
 
 # Static files directories

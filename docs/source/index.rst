@@ -1,21 +1,16 @@
-be-bi-pyqt-template
+BE BI PyQt Template
 ===================
 
 Introduction
 ------------
 
-BE BI PyQt Template Code
+BE BI PyQt Template Code.
 
-
-Installation
-------------
-
-Using the `acc-py Python package index
-<https://wikis.cern.ch/display/ACCPY/Getting+started+with+acc-python#Gettingstartedwithacc-python-OurPythonPackageRepositoryrepo>`_
-``be-bi-pyqt-template`` can be pip installed with::
-
-   pip install be-bi-pyqt-template
-
+.. warning:: This is just a stub of the documentation for BE BI PyQt Template. Please visit
+    `BI's documentation on the topic <https://acc-py.web.cern.ch/gitlab/szanzott/pyqt-mega-tutorial-for-be-bi/docs/master/index.html>`_,
+    the `official Acc-Py documentation <https://wikis.cern.ch/display/ACCPY/Accelerating+Python+Home>`_ and
+    `the Sphinx documentation <https://www.sphinx-doc.org/en/master/index.html>`_
+    to learn more about how to write these docpages.
 
 Documentation contents
 ----------------------
