@@ -3,9 +3,6 @@ Documentation for the be_bi_pyqt_template package
 
 """
 
-__version__ = "0.0.1.dev0"
-
-
 # Generate the code from .ui and .qrc files in case they are missing or outdated
 import os
 import pyqt5ac
