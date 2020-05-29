@@ -4,6 +4,11 @@ _Here goes the project description_
 
 ## Getting started
 
+#### Documentation
+
+You can find the API description and general documentation at this link:
+[https://acc-py.web.cern.ch/gitlab/gitlab-group/be-bi-pyqt-template]
+
 #### Install
 
 Assuming Python 3.6 is installed and `acc-pyqt` is active in your shell
