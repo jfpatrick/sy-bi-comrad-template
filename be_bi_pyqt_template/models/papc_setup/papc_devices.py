@@ -37,17 +37,10 @@ def create_my_devices() -> List[Device]:
         Setting('Settings', (
             FieldType("status", "int", initial_value=1),
             FieldType("name", "str", initial_value="My System"),
-            FieldType("amplitude_sin", "float", initial_value=50),
-            FieldType("amplitude_cos", "float", initial_value=50),
-            FieldType("period_sin", "float", initial_value=50),
-            FieldType("period_cos", "float", initial_value=50),
-            FieldType("theta", "float", initial_value=0)
+            FieldType("frequency", "float", initial_value=10),
         )),
         Acquisition('Acquisition', (
-            EquationFieldType('sin', 'float',
-                              'sin({Settings#theta}/({Settings#period_sin}/30))*{Settings#amplitude_sin}'),
-            EquationFieldType('cos', 'float',
-                              'cos({Settings#theta}/({Settings#period_cos}/30))*{Settings#amplitude_cos}'),
+            FieldType('angle', 'float'),
         )),
         # Next PAPC release will enable these fields too
         # Command('systemOn', (), start_the_device),
@@ -55,11 +48,11 @@ def create_my_devices() -> List[Device]:
     )
     # Instantiate a device using the above information - see IntervalUpdateDevice
     device = IntervalUpdateDevice(
-                        name="TEST_DEVICE",
+                        name="BISWRef1",
                         device_properties=device_properties,
-                        field_to_update="Settings#theta",
-                        selector_to_update=TimingSelector("LHC.USER.ALL"),
-                        timing_selectors=(TimingSelector(""), TimingSelector("LHC.USER.ALL")),
+                        field_to_update="Acquisition#angle",
+                        selector_to_update=TimingSelector(""),
+                        timing_selectors=(TimingSelector("")),
                         frequency=30
                     )
     return [device]

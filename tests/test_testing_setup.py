@@ -31,11 +31,11 @@ def test_can_use_pyjapc():
     japc_ppm = pyjapc.PyJapc()
     # Make sure these selectors and properties and fields are available in the mocked devices,
     # otherwise change them.
-    japc_ppm.setSelector(timingSelector="LHC.USER.ALL")
-    japc_ppm.setParam("TEST_DEVICE/Settings", {'theta': 1, 'amplitude_sin': 3, 'period_sin': 2})
-    value = japc_ppm.getParam("TEST_DEVICE/Acquisition#sin")
+    japc_ppm.setSelector(timingSelector="")
+    japc_ppm.setParam("BISWRef1/Settings", {'frequency': 1})
+    value = japc_ppm.getParam("BISWRef1/Settings#frequency")
     assert value is not None
-    assert value == math.sin(1/(2/30))*3
+    assert value == 1
 
 
 def test_can_use_pyjapc_within_qt(qtbot):

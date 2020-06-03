@@ -6,8 +6,6 @@ from PyQt5.QtCore import QObject, pyqtSlot
 import pyjapc
 from accwidgets.graph import UpdateSource, PointData
 
-from be_bi_pyqt_template.models.biswref1_settings import SettingsDeviceProperty
-
 #########################################################################################
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 # UNCOMMENT THESE LINES TO CONNECT WITH SIMULATED DEVICES
@@ -30,17 +28,15 @@ class ExampleModel(QObject):
         super(QObject, self).__init__()
         self.japc = pyjapc.PyJapc()
         self.japc.setSelector("")
-        self.biswref1_settings = SettingsDeviceProperty(addr='BISWRef1/Settings', japc=self.japc)
-        self.biswref1_settings.subscribe()
 
     def get_frequency(self):
         # Replace TEST_DEVICE/Settings#amplitude_sin with your device-property-field of interest
-        return self.biswref1_settings.frequency
+        return self.japc.getParam("BISWRef1/Settings#frequency")
 
     @pyqtSlot(int)
     def set_frequency(self, value):
         # Replace TEST_DEVICE/Settings#amplitude_sin with your device-property-field of interest
-        self.biswref1_settings.frequency = value
+        self.japc.setParam("BISWRef1/Settings#frequency", value)
 
 
 class DeviceTimingSource(UpdateSource):

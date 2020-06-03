@@ -31,7 +31,7 @@ def mock_pyjapc(monkeypatch):
     # Monkey-patch PyJapc
     pyjapc.PyJapc = setup_papc_devices()
     japc = pyjapc.PyJapc()
-    japc.setSelector("LHC.USER.ALL")
+    japc.setSelector("")
     # Run test
     yield japc
     # Clean up
