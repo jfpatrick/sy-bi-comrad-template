@@ -3,7 +3,7 @@
 Usage
 =====
 
-A high-level overview of how to use be-bi-pyqt-template.
+A high-level overview of how to use BE BI PyQt Template.
 
 An example:
 

@@ -22,7 +22,7 @@ Documentation contents
     self
 
 .. toctree::
-    :caption: be-bi-pyqt-template
+    :caption: BE BI PyQt Template
     :maxdepth: 1
 
     usage

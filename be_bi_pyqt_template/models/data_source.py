@@ -1,3 +1,4 @@
+import math
 from datetime import datetime
 
 from PyQt5.QtCore import QObject, pyqtSlot
@@ -5,11 +6,13 @@ from PyQt5.QtCore import QObject, pyqtSlot
 import pyjapc
 from accwidgets.graph import UpdateSource, PointData
 
+from be_bi_pyqt_template.models.biswref1_settings import SettingsDeviceProperty
+
 #########################################################################################
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
-# COMMENT OUT THESE LINES TO CONNECT WITH REAL DEVICES
-from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
-pyjapc.PyJapc = setup_papc_devices()
+# UNCOMMENT THESE LINES TO CONNECT WITH SIMULATED DEVICES
+# from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
+# pyjapc.PyJapc = setup_papc_devices()
 #########################################################################################
 
 
@@ -26,43 +29,18 @@ class ExampleModel(QObject):
     def __init__(self):
         super(QObject, self).__init__()
         self.japc = pyjapc.PyJapc()
-        self.japc.setSelector("LHC.USER.ALL")
+        self.japc.setSelector("")
+        self.biswref1_settings = SettingsDeviceProperty(addr='BISWRef1/Settings', japc=self.japc)
+        self.biswref1_settings.subscribe()
 
-    def get_amplitude_sin(self):
+    def get_frequency(self):
         # Replace TEST_DEVICE/Settings#amplitude_sin with your device-property-field of interest
-        return self.japc.getParam("TEST_DEVICE/Settings#amplitude_sin")
-
-    def get_period_sin(self):
-        # Replace TEST_DEVICE/Settings#period_sin with your device-property-field of interest
-        return self.japc.getParam("TEST_DEVICE/Settings#period_sin")
-
-    def get_amplitude_cos(self):
-        # Replace TEST_DEVICE/Settings#amplitude_cos with your device-property-field of interest
-        return self.japc.getParam("TEST_DEVICE/Settings#amplitude_cos")
-
-    def get_period_cos(self):
-        # Replace TEST_DEVICE/Settings#period_cos with your device-property-field of interest
-        return self.japc.getParam("TEST_DEVICE/Settings#period_cos")
+        return self.biswref1_settings.frequency
 
     @pyqtSlot(int)
-    def set_amplitude_sin(self, value):
+    def set_frequency(self, value):
         # Replace TEST_DEVICE/Settings#amplitude_sin with your device-property-field of interest
-        self.japc.setParam("TEST_DEVICE/Settings#amplitude_sin", value)
-
-    @pyqtSlot(int)
-    def set_period_sin(self, value):
-        # Replace TEST_DEVICE/Settings#period_sin with your device-property-field of interest
-        self.japc.setParam("TEST_DEVICE/Settings#period_sin", value)
-
-    @pyqtSlot(int)
-    def set_amplitude_cos(self, value):
-        # Replace TEST_DEVICE/Settings#amplitude_cos with your device-property-field of interest
-        self.japc.setParam("TEST_DEVICE/Settings#amplitude_cos", value)
-
-    @pyqtSlot(int)
-    def set_period_cos(self, value):
-        # Replace TEST_DEVICE/Settings#period_cos with your device-property-field of interest
-        self.japc.setParam("TEST_DEVICE/Settings#period_cos", value)
+        self.biswref1_settings.frequency = value
 
 
 class DeviceTimingSource(UpdateSource):
@@ -114,6 +92,6 @@ class SinglePointSource(UpdateSource):
         """ Callback for JAPC, emitting the signal 'sig_new_data' """
         new_data = PointData(
             x=datetime.now().timestamp(),
-            y=float(value)
+            y=float(math.sin(value/10))
         )
         self.sig_new_data[PointData].emit(new_data)

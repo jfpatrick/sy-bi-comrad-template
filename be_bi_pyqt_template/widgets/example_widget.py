@@ -40,27 +40,15 @@ class ExampleWidget(QTabWidget, Ui_TabWidget):
 
         # Setup the plots
         scrolling_plot = self.findChild(ScrollingPlotWidget, "scrolling_plot")
-        self._setup_plot(scrolling_plot, parameter="TEST_DEVICE/Acquisition#sin", selector="LHC.USER.ALL")
-
-        cyclic_plot = self.findChild(CyclicPlotWidget, "cyclic_plot")
-        self._setup_plot(cyclic_plot, parameter="TEST_DEVICE/Acquisition#cos", selector="LHC.USER.ALL")
+        self._setup_plot(scrolling_plot, parameter="BISWRef1/Acquisition#angle", selector="")
 
         # Setup the control widgets for amplitude and period:
         # - Select the widget
-        amplitude_sin = self.findChild(QSpinBox, "amplitude_sin")
-        period_sin = self.findChild(QSpinBox, "period_sin")
-        amplitude_cos = self.findChild(QSpinBox, "amplitude_cos")
-        period_cos = self.findChild(QSpinBox, "period_cos")
+        frequency_scrolling_plot = self.findChild(QSpinBox, "frequency_scrolling_plot")
         # - Set their initial value reading it from the devices
-        amplitude_sin.setValue(self.model.get_amplitude_sin())
-        period_sin.setValue(self.model.get_period_sin())
-        amplitude_cos.setValue(self.model.get_amplitude_cos())
-        period_cos.setValue(self.model.get_period_cos())
-        # - Connect them to the device to receive eventual updates
-        amplitude_sin.valueChanged.connect(self.model.set_amplitude_sin)
-        period_sin.valueChanged.connect(self.model.set_period_sin)
-        amplitude_cos.valueChanged.connect(self.model.set_amplitude_cos)
-        period_cos.valueChanged.connect(self.model.set_period_cos)
+        frequency_scrolling_plot.setValue(self.model.get_frequency())
+        # - Connect them to the device to be able to set
+        frequency_scrolling_plot.valueChanged.connect(self.model.set_frequency)
 
         # Log something to see it in the LogDisplay Widget
         logging.debug("This message won't be visible, because the default log level is INFO")
@@ -78,4 +66,3 @@ class ExampleWidget(QTabWidget, Ui_TabWidget):
         # Setup the plot
         plot_widget.time_span = TimeSpan(10.0, 0.0),
         plot_widget.time_progress_line = True
-
