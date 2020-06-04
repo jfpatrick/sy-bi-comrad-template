@@ -36,7 +36,7 @@ The application can already be started. To start it, type in the console the nam
 
 You should see the frame with a dummy application in the center, like this:
 
-![](images/pyqt-template.png)
+![](images/pyqt-template.gif)
 
 Or a smaller window with an error. In the latter case, please report the error 
 to the maintainers.

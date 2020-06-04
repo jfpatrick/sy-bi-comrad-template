@@ -24,8 +24,8 @@ REQUIREMENTS: dict = {
         "be-bi-application-frame",
         "comrad",  # FIXME Provides the CLogDisplay, remove in favor of the real AppFrame or accwidgets'version when out
         "accwidgets",  # For the plots
-        "pyjapc",  # FIXME Has to go after comrad to pick the right version?
-        "JPype1<0.7.0,>=0.6.1",  # FIXME Due to pyjapc apparently
+        "pyjapc==2.1.2",  # FIXME Has to go after comrad to pick the right version?
+        "importlib-metadata==1.0.0",  # FIXME Due to comrad I suppose?
     ],
     'test': [
         "pytest",
