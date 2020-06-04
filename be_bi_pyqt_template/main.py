@@ -7,6 +7,8 @@ from be_bi_application_frame.application_frame import ApplicationFrame
 
 # Import the Presenter from the widgets folder
 from be_bi_pyqt_template.widgets.example_widget import ExampleWidget
+
+# Import the constants
 from be_bi_pyqt_template.constants import APPLICATION_NAME, AUTHOR, EMAIL
 
 
@@ -28,7 +30,11 @@ def main():
 
         # Apply small customizations to the application (window title, window icon...)
         example_widget.setWindowIcon(QIcon('resources/images/CERN_logo.png'))
+
+        # Add the example widget to the window
         window.setCentralWidget(example_widget)
+
+        # Set the window title
         window.setWindowTitle(APPLICATION_NAME)
 
     except Exception as e:

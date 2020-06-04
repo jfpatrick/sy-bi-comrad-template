@@ -28,9 +28,8 @@ def test_can_open_main_window(monkeypatch, mock_pyjapc, qtbot):
 
 def test_main_window_has_all_tabs(my_gui):
     """ Make sure the example application has all the expected tabs in the right order. """
-    assert my_gui.count() == 2
+    assert my_gui.count() == 1
     assert my_gui.tabText(0) == "Plot"
-    assert my_gui.tabText(1) == "Image"
 
 
 def test_first_tab(my_gui, mock_pyjapc, qtbot):
