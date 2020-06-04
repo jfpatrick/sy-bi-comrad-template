@@ -22,9 +22,10 @@ REQUIREMENTS: dict = {
         "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "pyqtgraph",
         "be-bi-application-frame",
-        "comrad",  # Provides the CLogDisplay
+        "comrad",  # FIXME Provides the CLogDisplay, remove in favor of the real AppFrame or accwidgets'version when out
         "accwidgets",  # For the plots
-        "pyjapc",  # Has to go after comrad to pick the right version?
+        "pyjapc",  # FIXME Has to go after comrad to pick the right version?
+        "JPype1<0.7.0,>=0.6.1",  # FIXME Due to pyjapc apparently
     ],
     'test': [
         "pytest",
