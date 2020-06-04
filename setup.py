@@ -21,10 +21,10 @@ REQUIREMENTS: dict = {
         "pyqt5",
         "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "pyqtgraph",
-        "pyjapc>=2.0.7",  # Necessary because of comrad atm
         "be-bi-application-frame",
         "comrad",  # Provides the CLogDisplay
         "accwidgets",  # For the plots
+        "pyjapc",  # Has to go after comrad to pick the right version?
     ],
     'test': [
         "pytest",
