@@ -4,7 +4,7 @@ import logging
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMessageBox, QWidget
-from be_bi_pyqt_template.frame import ApplicationFrame
+from be_bi_application_frame import ApplicationFrame
 
 # Import the View from the widgets folder
 from be_bi_pyqt_template.widgets.main_widget import MainWidget
@@ -34,7 +34,7 @@ def main():
         window.setWindowIcon(QIcon(icon_path))
 
         # Add the example widget to the window
-        window.setCentralWidget(example_widget)
+        window.setMainWidget(example_widget)
 
         # Set the initial size of the window
         window.resize(800, 600)
