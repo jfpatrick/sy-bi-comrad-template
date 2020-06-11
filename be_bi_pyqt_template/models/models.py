@@ -9,21 +9,18 @@ from accwidgets.graph import UpdateSource, PointData
 #########################################################################################
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 # UNCOMMENT THESE LINES TO CONNECT WITH A SIMULATED DEVICE
-# from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
-# pyjapc.PyJapc = setup_papc_devices()
+from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
+pyjapc.PyJapc = setup_papc_devices()
 #########################################################################################
 
 
-class ExampleModel(QObject):
+class SpinBoxModel(QObject):
     """
     This class acts as Model for the ``SpinBox`` below the plot.
-
     It connects to PyJAPC and performs GET and SET operations.
 
     Functions decorated with the @pyqtSlot decorator can be connected to signals coming from the View.
-    In general, **no direct call from the View to the Model, or from the Model to the View, should ever happen**.
-
-    You can see how the signals and the slots are connected in the ``ExampleWidget`` class.
+    You can see how the signals and the slots are connected in the ``MainWidget`` class.
     """
     def __init__(self):
         super(QObject, self).__init__()
@@ -43,9 +40,8 @@ class ExampleModel(QObject):
     def set_frequency(self, value: int) -> None:
         """
         SETs the frequency to the control system through PyJAPC.
-        Note: this function is a Slot: therefore it can receive direct updates from the View.
-        The View however has no knowledge of this function: is the Presenter (``ExampleWidget``) that wires them
-        together shortly after instantiation.
+        Note: this function is a Slot: therefore it can receive updates from the View.
+        Such updates do not reach with a direct call, but are sent by emitting a signal.
         :param value: the frequency to set
         :return: None
         """
@@ -55,10 +51,8 @@ class ExampleModel(QObject):
 class DeviceTimingSource(UpdateSource):
     """
         This class acts as a Timing model for a plot.
-
-        It subscribes to JAPC and emits a new timestamp every time it receives new data.
-
-        Qt Signals can be picked up by the View, once the Presenter (``ExampleWidget``) sets them up.
+        It subscribes to JAPC and emits a signal carrying a timestamp every time it receives new data.
+        Such signal will be received by the View, which will react accordingly.
 
         In this specific case, the ``sig_new_timestamp`` signal can be understood by accwidgets' ``PlotWidget`` classes.
         Always check the documentation to make sure which signal names are understood by which target classes.
@@ -96,10 +90,8 @@ class DeviceTimingSource(UpdateSource):
 class SinglePointSource(UpdateSource):
     """
         This class acts as a Data model for a plot.
-
-        It subscribes to JAPC and emits a new PointData value every time it receives new data.
-
-        Emitted signals can be in turn picked up by the View, once the Presenter (``ExampleWidget``) sets them up.
+        It subscribes to JAPC and emits a signal carrying a new PointData instance every time it receives new data.
+        Such signal will be received by the View, which will react accordingly.
 
         In this specific case, the ``sig_new_data`` signal can be understood by accwidgets' ``PlotWidget`` classes.
         Always check the documentation to make sure which signal names are understood by which target classes.

@@ -1,7 +1,7 @@
 import PyQt5
 from PyQt5.QtWidgets import QPushButton, QSpinBox
-from accwidgets.graph import ScrollingPlotWidget, CyclicPlotWidget
-from be_bi_pyqt_template.widgets.example_widget import ExampleWidget
+from accwidgets.graph import ScrollingPlotWidget
+from be_bi_pyqt_template.widgets.main_widget import MainWidget
 
 
 def test_can_open_main_window(monkeypatch, mock_pyjapc, qtbot):
@@ -21,20 +21,23 @@ def test_can_open_main_window(monkeypatch, mock_pyjapc, qtbot):
 
     # No QMessageBox should open, so no RuntimeError should be thrown
     # If you expect a QMessageBox, then use 'with pytest.raises(RuntimeException):' to catch the exception
-    my_gui = ExampleWidget()
+    my_gui = MainWidget()
     my_gui.show()
     assert my_gui is not None
 
 
 def test_main_window_has_all_tabs(my_gui):
-    """ Make sure the example application has all the expected tabs in the right order. """
+    """
+    Make sure the example application has all the expected tabs in the right order.
+    """
     assert my_gui.count() == 1
     assert my_gui.tabText(0) == "Plot"
 
 
 def test_first_tab(my_gui, mock_pyjapc, qtbot):
-    """ Test the first tab looks right and does what it's expected to do. """
-
+    """
+    Test the example application looks right and does what it's expected to do.
+    """
     # Does it contain a ScrollingPlotWidget?
     assert my_gui.plot_tab.findChild(ScrollingPlotWidget) is not None
 

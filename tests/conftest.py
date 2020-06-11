@@ -1,8 +1,8 @@
+from be_bi_pyqt_template.widgets.main_widget import MainWidget
+from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
+
 import pytest
 import pyjapc
-
-from be_bi_pyqt_template.widgets.example_widget import ExampleWidget
-from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
 
 
 @pytest.fixture()
@@ -13,7 +13,7 @@ def my_gui(qtbot):
     It will be available in your tests as 'my_gui'
     (change the function name to change this)
     """
-    my_gui = ExampleWidget()
+    my_gui = MainWidget()
     my_gui.show()
     qtbot.addWidget(my_gui)
     yield my_gui
@@ -26,7 +26,7 @@ def mock_pyjapc(monkeypatch):
     Make sure you setup papc to simulate the same devices your GUI usually
     connects to.
     This fixture will make an object called 'mock_pyjapc' available in your tests
-    without the need to isntantiate it.
+    without the need to instantiate it.
     """
     # Monkey-patch PyJapc
     pyjapc.PyJapc = setup_papc_devices()

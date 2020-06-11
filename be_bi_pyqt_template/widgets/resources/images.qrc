@@ -1,5 +1,5 @@
 <RCC>
   <qresource prefix="icons">
-    <file>CERN_logo.png</file>
+    <file>images/CERN_logo.png</file>
   </qresource>
 </RCC>

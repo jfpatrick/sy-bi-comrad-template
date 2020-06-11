@@ -1,5 +1,4 @@
 import time
-import datetime
 from threading import Event, Thread
 
 from papc.device import Device
@@ -10,20 +9,22 @@ class IntervalUpdateDevice(Device):
         Subclass of Device that updates one of its fields at a specified frequency.
         You can subclass Device to implement any behavior you might want to simulate.
     """
-    def __init__(self, field_to_update, selector_to_update, frequency=30, *args, **kwargs):
+    def __init__(self, field_to_update, selector_to_update, frequency_monitor, *args, **kwargs):
         # Take out the `frequency` argument from the kwargs, or default to 30Hz
+        self.frequency = 30
+        self.value_to_emit = 0
         self.field_to_update = field_to_update
         self.selector_to_update = selector_to_update
+        self.frequency_monitor = frequency_monitor
         super().__init__(*args, **kwargs)
         # Start the internal timer (RepeatedTimer is defined below)
-        self.timer = RepeatedTimer(1 / frequency, self.time_tick)
+        self.timer = RepeatedTimer(self.time_tick, 1/self.frequency)
 
     def time_tick(self):
         """ Callback executed at each timer tick """
-        now = datetime.datetime.now()
-        t = time.mktime(now.timetuple()) + now.microsecond / 1e6
+        self.value_to_emit += self.frequency_monitor(self) / self.frequency
         # Set the given field with the current timestamp
-        self.set_state({self.field_to_update: t}, self.selector_to_update)
+        self.set_state({self.field_to_update: self.value_to_emit}, self.selector_to_update)
 
 
 class RepeatedTimer:
@@ -33,7 +34,7 @@ class RepeatedTimer:
     Arguments can be passed to the target function by passing them
     as extra arguments to the init function of this timer.
     """
-    def __init__(self, interval, function, *args, **kwargs):
+    def __init__(self, function, interval, *args, **kwargs):
         self.interval = interval
         self.function = self._orig_function = function
         self.args = args

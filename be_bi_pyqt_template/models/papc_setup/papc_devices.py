@@ -28,8 +28,9 @@ def create_my_devices() -> List[Device]:
     """
     This function describes in detail how to simulate a JAPC device
     and instantiates the hierarchy of objects required for the simulation.
-    You can find more information regarding papc simulations
-    on the Acc-Py wikis:
+    You can find more information regarding papc simulations on the BI PyQT Tutorial
+    https://acc-py.web.cern.ch/gitlab/szanzott/pyqt-mega-tutorial-for-be-bi/docs/master/89-papc.html
+    and on the Acc-Py wikis:
     https://wikis.cern.ch/display/ACCPY/papc+-+a+pure+Python+PyJapc+offline+simulator
     """
     # List the devices properties and fields and their relationships
@@ -53,7 +54,8 @@ def create_my_devices() -> List[Device]:
                         field_to_update="Acquisition#angle",
                         selector_to_update=TimingSelector(""),
                         timing_selectors=(TimingSelector("")),
-                        frequency=30
+                        frequency_monitor=
+                        lambda d: d.get_state(["Settings#frequency"], TimingSelector(""))["Settings#frequency"]["value"]
                     )
     return [device]
 
