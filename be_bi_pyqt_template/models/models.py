@@ -9,8 +9,8 @@ from accwidgets.graph import UpdateSource, PointData
 #########################################################################################
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 # UNCOMMENT THESE LINES TO CONNECT WITH A SIMULATED DEVICE
-from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
-pyjapc.PyJapc = setup_papc_devices()
+# from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
+# pyjapc.PyJapc = setup_papc_devices()
 #########################################################################################
 
 
