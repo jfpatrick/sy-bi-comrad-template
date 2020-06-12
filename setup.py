@@ -22,6 +22,7 @@ REQUIREMENTS: dict = {
         "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "accwidgets",
         "be-bi-application-frame",
+        "pyjapc",
     ],
     'test': [
         "pytest",
