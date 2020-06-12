@@ -1,3 +1,8 @@
+"""
+For reference, see:
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-widgets
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-widgets-resources
+"""
 import logging
 
 from PyQt5.QtWidgets import QTabWidget, QSpinBox

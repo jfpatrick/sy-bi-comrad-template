@@ -1,3 +1,7 @@
+"""
+For reference, see:
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-models
+"""
 import math
 from datetime import datetime
 
@@ -7,8 +11,10 @@ import pyjapc
 from accwidgets.graph import UpdateSource, PointData
 
 #########################################################################################
+# See https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-models-papc-setup
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 # UNCOMMENT THESE LINES TO CONNECT WITH A SIMULATED DEVICE
+#
 # from be_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
 # pyjapc.PyJapc = setup_papc_devices()
 #########################################################################################

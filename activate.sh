@@ -1,3 +1,8 @@
+
+# For reference, see
+# https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#activate-sh
+
+# Activate the virtual environments
 deactivate >/dev/null 2>&1
 source /acc/local/share/python/acc-py-pyqt/setup.sh
 source venv/bin/activate

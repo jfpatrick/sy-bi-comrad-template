@@ -1,6 +1,7 @@
 """
-Documentation for the be_bi_pyqt_template package
-
+For reference, see:
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-init-py
 """
 
 # Generate the code from .ui and .qrc files in case they are missing or outdated

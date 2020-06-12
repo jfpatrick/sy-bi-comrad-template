@@ -1,3 +1,7 @@
+"""
+For reference, see
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-models-papc-setup
+"""
 from typing import List
 from papc.interfaces.pyjapc import SimulatedPyJapc
 from papc.system import System

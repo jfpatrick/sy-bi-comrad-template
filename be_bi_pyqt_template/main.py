@@ -1,3 +1,8 @@
+"""
+For reference, see:
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-main-py
+"""
+
 import os
 import sys
 import logging

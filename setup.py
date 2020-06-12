@@ -1,12 +1,7 @@
 """
-setup.py for be-bi-pyqt-template.
-
-If you are using this code as a boilerplate, remember to
-update the information contained here to match your project!
-
-For reference see
+For reference see:
+https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#setup-py
 https://packaging.python.org/guides/distributing-packages-using-setuptools/
-
 """
 from pathlib import Path
 from setuptools import setup, find_packages
