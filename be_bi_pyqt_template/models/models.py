@@ -54,45 +54,6 @@ class SpinBoxModel(QObject):
         self.japc.setParam("BISWRef1/Settings#frequency", value)
 
 
-class DeviceTimingSource(UpdateSource):
-    """
-        This class acts as a Timing model for a plot.
-        It subscribes to JAPC and emits a signal carrying a timestamp every time it receives new data.
-        Such signal will be received by the View, which will react accordingly.
-
-        In this specific case, the ``sig_new_timestamp`` signal can be understood by accwidgets' ``PlotWidget`` classes.
-        Always check the documentation to make sure which signal names are understood by which target classes.
-    """
-    def __init__(self, parameter_name, selector):
-        """
-        Instantiate the object, creates its own PyJAPC connector and subscribes to the requested value.
-        :param parameter_name:
-        :param selector:
-        """
-        super().__init__()
-        # Create the PyJAPC connector
-        self.japc = pyjapc.PyJapc()
-        # Use the given selector
-        self.japc.setSelector(timingSelector=selector)
-        # Subscribe to the requested Device/Property#field
-        self.japc.subscribeParam(parameter_name, self._new_value_received)
-        # Start receiving data
-        self.japc.startSubscriptions()
-
-    def _new_value_received(self, name: str, value: int) -> None:
-        """
-        Function called every time PyJAPC receives a new value.
-        It emits the signal ``sig_new_timestamp``, that carries a timestamp.
-        :param name: Always equal to parameter_name - uninteresting, it never changes in this case.
-        :param value: The new value received - uninteresting, because we need to emit only its timestamp.
-        :return: None.
-        """
-        # Emit a signal containing the timestamp of the execution time of this function
-        self.sig_new_timestamp.emit(datetime.now().timestamp())
-        # NOTE: any timestamp can be emitted here: if the JAPC value carries a more meaningful timestamp,
-        #   you can extract it and emit it instead.
-
-
 class SinglePointSource(UpdateSource):
     """
         This class acts as a Data model for a plot.

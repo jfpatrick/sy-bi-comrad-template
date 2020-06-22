@@ -26,20 +26,22 @@ def main():
     """
     logging.info("Starting up {}...".format(APPLICATION_NAME))
 
-    # Instantiate the QApplication and the ApplicationFrame
+    # Instantiate the QApplication
     app = QApplication(sys.argv)
-    window = ApplicationFrame()
 
     try:
-        # Instantiate your GUI (here the ExampleWidget class)
-        example_widget = MainWidget(parent=window)
+        # Instantiate the ApplicationFrame
+        window = ApplicationFrame()
+
+        # Instantiate your GUI (here the MainWidget class)
+        main_widget = MainWidget(parent=window)
+
+        # Add the main widget to the window
+        window.setMainWidget(main_widget)
 
         # Apply small customizations to the application (window title, window icon...)
         icon_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'widgets/resources/images/CERN_logo.png')
         window.setWindowIcon(QIcon(icon_path))
-
-        # Add the example widget to the window
-        window.setMainWidget(example_widget)
 
         # Set the initial size of the window
         window.resize(800, 600)
@@ -48,13 +50,17 @@ def main():
         window.setWindowTitle(APPLICATION_NAME)
 
     except Exception as e:
+        # First of all, log
+        logging.exception(e)
 
         # If something goes wrong, shows a small QDialog with an error message and quits
         window = QWidget()
-        dialog = QMessageBox()
-        dialog.critical(window, "Error", "An Exception occurred at startup:\n\n{}\n\n".format(e) +
-                                         "See the logs for more information, " +
-                                         "and please report this issue to {} ({})".format(AUTHOR, EMAIL))
+        dialog = QMessageBox(parent=window)
+        dialog.critical(window,
+                        "Error",
+                        "An Exception occurred at startup:\n\n{}\n\n".format(e) +
+                        "See the logs for more information, " +
+                        "and please report this issue to {} ({})".format(AUTHOR, EMAIL))
         window.deleteLater()
         return
 
