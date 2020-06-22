@@ -47,7 +47,7 @@ def test_first_tab(my_gui, mock_pyjapc, qtbot):
     assert my_gui.plot_tab.findChild(ScrollingPlotWidget) is not None
 
     # Does it contain a QSpinBox called 'amplitude_sin'?
-    spinbox = my_gui.plot_tab.findChild(QSpinBox, "frequency_scrolling_plot")
+    spinbox = my_gui.plot_tab.findChild(QSpinBox, "frequency_spinbox")
     assert spinbox is not None
     # Does it set the right value on the right device?
     spinbox.clear()
