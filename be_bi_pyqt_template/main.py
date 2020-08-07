@@ -33,6 +33,10 @@ def main():
         # Instantiate the ApplicationFrame
         window = ApplicationFrame()
 
+        # Set the Timing Widget (the one on the top-left corner of the frame) to read data from one accelerator.
+        # For the example, we set SPS
+        window.timing_widget.accelerator = "SPS"
+
         # Instantiate your GUI (here the MainWidget class)
         main_widget = MainWidget(parent=window)
 
