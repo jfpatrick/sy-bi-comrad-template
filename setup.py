@@ -13,18 +13,18 @@ with (HERE / 'README.md').open('rt') as fh:
 
 REQUIREMENTS: dict = {
     'core': [
-        "pyqt5",
-        "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
         "accwidgets",
         "be-bi-application-frame",
         "pyjapc",
+        "pyqt5",
+        "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
     ],
     'test': [
+        "papc",  # For the sandbox mode
         "pytest",
         "pytest-qt",
         "pytest-cov",
         "pytest-random-order",
-        "papc",  # For the sandbox mode
     ],
     'dev': [
     ],
@@ -68,7 +68,7 @@ setup(
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
             # This means: 'be-bi-pyqt-template' launches "be_bi_pyqt_template/main.py:main()"
-            'be-bi-pyqt-template=be_bi_pyqt_template.main:main',
+            'be-bi-pyqt-template=be_bi_pyqt_template.__main__:main',
         ],
     },
 )

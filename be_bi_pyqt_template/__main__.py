@@ -73,3 +73,9 @@ def main():
 
     # Once left the event loop, terminates the application
     sys.exit(app.exec_())
+    
+
+# Compatibility with acc-py app    
+if __name__ == "__main__":
+    main()
+    
