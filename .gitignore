@@ -4,6 +4,9 @@
 # Generated Python files
 be_bi_pyqt_template/widgets/resources/generated/*
 
+# Acc-Py deployment files
+deployment/*
+
 # PyCharm folders
 .idea/
 
