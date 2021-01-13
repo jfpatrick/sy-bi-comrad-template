@@ -13,11 +13,8 @@ with (HERE / 'README.md').open('rt') as fh:
 
 REQUIREMENTS: dict = {
     'core': [
-        "accwidgets",
-        "be-bi-application-frame",
-        "pyjapc",
+        "accwidgets[all-widgets]>=1.0,<2.0a0",
         "pyqt5",
-        "pyqtgraph",
         "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
     ],
     'test': [

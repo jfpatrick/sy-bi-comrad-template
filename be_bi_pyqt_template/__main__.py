@@ -9,7 +9,8 @@ import logging
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMessageBox, QWidget
-from be_bi_application_frame import ApplicationFrame
+from accwidgets.app_frame import ApplicationFrame
+from accwidgets.timing_bar._model import TimingBarModel, TimingBarDomain
 
 # Import the View from the widgets folder
 from be_bi_pyqt_template.widgets.main_widget import MainWidget
@@ -31,17 +32,20 @@ def main():
 
     try:
         # Instantiate the ApplicationFrame
-        window = ApplicationFrame()
+        window = ApplicationFrame(use_timing_bar=True, use_log_console=True)
 
         # Set the Timing Widget (the one on the top-left corner of the frame) to read data from one accelerator.
         # For the example, we set SPS
-        window.timing_widget.accelerator = "SPS"
+        window.timing_bar.model = TimingBarModel(domain=TimingBarDomain.SPS)
+
+        # Make the log console start closed
+        window.log_console.console.toggleExpandedMode()
 
         # Instantiate your GUI (here the MainWidget class)
         main_widget = MainWidget(parent=window)
 
         # Add the main widget to the window
-        window.setMainWidget(main_widget)
+        window.setCentralWidget(main_widget)
 
         # Apply small customizations to the application (window title, window icon...)
         icon_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'widgets/resources/images/CERN_logo.png')
