@@ -6,7 +6,7 @@ https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-projec
 import PyQt5
 from PyQt5.QtWidgets import QPushButton, QSpinBox
 from accwidgets.graph import ScrollingPlotWidget
-from be_bi_pyqt_template.widgets.main_widget import MainWidget
+from sy_bi_pyqt_template.widgets.main_widget import MainWidget
 
 
 def test_can_open_main_window(monkeypatch, mock_pyjapc, qtbot):

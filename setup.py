@@ -14,7 +14,7 @@ with (HERE / 'README.md').open('rt') as fh:
 REQUIREMENTS: dict = {
     'core': [
         "accwidgets[all-widgets]>=1.0,<2.0a0",
-        "pyqt5",
+        #"pyqt5",
         "pyqt5ac @ git+https://:@gitlab.cern.ch:8443/szanzott/pyqt5ac.git",  # To automate the compilation of .ui and .qrc files
     ],
     'test': [
@@ -33,12 +33,12 @@ REQUIREMENTS: dict = {
 }
 
 setup(
-    name='be-bi-pyqt-template',  # Your application name
+    name='sy-bi-pyqt-template',  # Your application name
     version="0.0.1.dev1",  # The latest version of this package
 
     author="Sara Zanzottera",  # Your name
     author_email="sara.zanzottera@cern.ch",  # Your email
-    description="BE BI PyQt Template Code",  # Your project's short description
+    description="SY BI PyQt Template Code",  # Your project's short description
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
     url='',
@@ -65,8 +65,8 @@ setup(
     entry_points={
         'console_scripts': [
             # MODIFY: remove this line and add a pointer to the startup function of your app.
-            # This means: 'be-bi-pyqt-template' launches "be_bi_pyqt_template/main.py:main()"
-            'be-bi-pyqt-template=be_bi_pyqt_template.__main__:main',
+            # This means: 'sy-bi-pyqt-template' launches "sy_bi_pyqt_template/main.py:main()"
+            'sy-bi-pyqt-template=sy_bi_pyqt_template.__main__:main',
         ],
     },
 )

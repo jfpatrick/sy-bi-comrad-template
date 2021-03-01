@@ -13,10 +13,10 @@ from accwidgets.app_frame import ApplicationFrame
 from accwidgets.timing_bar._model import TimingBarModel, TimingBarDomain
 
 # Import the View from the widgets folder
-from be_bi_pyqt_template.widgets.main_widget import MainWidget
+from sy_bi_pyqt_template.widgets.main_widget import MainWidget
 
 # Import the constants
-from be_bi_pyqt_template.constants import APPLICATION_NAME, AUTHOR, EMAIL
+from sy_bi_pyqt_template.constants import APPLICATION_NAME, AUTHOR, EMAIL
 
 
 def main():

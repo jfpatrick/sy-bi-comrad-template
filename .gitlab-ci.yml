@@ -15,11 +15,11 @@ GUI Tests:
   script:
    - source /opt/venv/bin/activate
    - pip install .[core,test]
-   - cd be_bi_pyqt_template
+   - cd sy_bi_pyqt_template
    - pyqt5ac --config pyqt5ac.yml
    - cd ../
    - run_headless python -m pytest --log-cli-level=DEBUG --random-order --junitxml=report.xml  \
-     --cov-report html:coverage --cov-report term-missing:skip-covered --cov=be_bi_pyqt_template
+     --cov-report html:coverage --cov-report term-missing:skip-covered --cov=sy_bi_pyqt_template
      \ -vx --color=yes
   coverage: /TOTAL.+ ([0-9]{1,3}%)/
   artifacts:

@@ -1,6 +1,6 @@
 .. _API_docs:
 
-BE BI PyQt Template API documentation
+SY BI PyQt Template API documentation
 ======================================
 
 .. rubric:: Modules

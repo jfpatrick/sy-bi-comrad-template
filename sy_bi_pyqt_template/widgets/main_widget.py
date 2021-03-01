@@ -3,17 +3,14 @@ For reference, see:
 https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-widgets
 https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-widgets-resources
 """
-import logging
-
+from logging import getLogger
 from PyQt5.QtWidgets import QTabWidget
 
-from accwidgets.graph import TimeSpan, ScrollingPlotWidget
-
 # Import the models
-from be_bi_pyqt_template.models.models import SpinBoxModel, SinglePointSource
+from sy_bi_pyqt_template.models.models import SpinBoxModel, SinglePointSource
 
 # Import the code generated from the main_widget.ui file
-from be_bi_pyqt_template.widgets.resources.generated.ui_main_widget import Ui_TabWidget
+from sy_bi_pyqt_template.widgets.resources.generated.ui_main_widget import Ui_TabWidget
 
 
 class MainWidget(QTabWidget, Ui_TabWidget):
@@ -55,7 +52,8 @@ class MainWidget(QTabWidget, Ui_TabWidget):
         self.scrolling_plot.addCurve(data_source=data_source)
 
         # Log something to see it in the log widget
-        logging.debug("This message won't be visible, because the default log level is WARNING")
-        logging.warning("This is a message from the application.")
+        self.logger = getLogger('main')
+        self.logger.debug("This message won't be visible, because the default log level is WARNING")
+        self.logger.warning("This is a message from the application.")
 
 

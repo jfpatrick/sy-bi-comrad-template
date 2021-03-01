@@ -1,6 +1,6 @@
-# BE-BI PyQt5 Template
+# SY-BI PyQt5 Template
 
-This is the repository for the BE-BI PyQt5 Template code.
+This is the repository for the SY-BI PyQt5 Template code.
 
 It can be used to bootstrap a PyQt GUI project: the code provides a basic
 architecture that you only have to extend with your own interface and logic. 
@@ -17,7 +17,7 @@ that can be extended to mimick your real data sources (FESA, NXCALS, ...)
 - A small `activate.sh` activation script to activate both your virtualenv and Acc-Py, and
 sets up some env vars for QtDesigner
 
-See the [documentation](https://acc-py.web.cern.ch/gitlab/szanzott/pyqt-mega-tutorial-for-be-bi/docs/master/fast/5-project-structure.html)
+See the [documentation](https://acc-py.web.cern.ch/gitlab/szanzott/pyqt-mega-tutorial-for-sy-bi/docs/master/fast/5-project-structure.html)
 for a more detailed explanation of all the features.
 
 ## Getting started

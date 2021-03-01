@@ -2,7 +2,7 @@
 # https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#gitignore
 
 # Generated Python files
-be_bi_pyqt_template/widgets/resources/generated/*
+sy_bi_pyqt_template/widgets/resources/generated/*
 
 # Acc-Py deployment files
 deployment/*

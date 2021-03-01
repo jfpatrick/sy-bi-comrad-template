@@ -7,9 +7,9 @@ https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-projec
 import datetime
 import pkg_resources
 
-project = "be-bi-pyqt-template"
+project = "sy-bi-pyqt-template"
 author = "Sara Zanzottera"
-version = pkg_resources.get_distribution("be_bi_pyqt_template").version
+version = pkg_resources.get_distribution("sy_bi_pyqt_template").version
 
 copyright = "{0}, CERN".format(datetime.datetime.now().year)
 
@@ -43,7 +43,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = "acc_py"
-html_title = "BE BI PyQt Template"
+html_title = "SY BI PyQt Template"
 html_favicon = '../../images/favicon.png'
 
 # Static files directories
