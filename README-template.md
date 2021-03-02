@@ -1,4 +1,6 @@
-# Project Name
+# Project Name    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/pipeline.svg)
+
+
 
 _Here goes the project description_
 
@@ -7,7 +9,7 @@ _Here goes the project description_
 #### Documentation
 
 You can find the API description and general documentation at this link:
-[https://acc-py.web.cern.ch/gitlab/gitlab-group/be-bi-pyqt-template]
+[https://acc-py.web.cern.ch/gitlab/gitlab-group/sy-bi-pyqt-template]
 
 #### Install
 
