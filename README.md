@@ -41,6 +41,8 @@ You should see the frame with a dummy application in the center, like this:
 Or a smaller window with an error. In the latter case, please report the error 
 to the maintainers.
 
+![](images/pyqt-error.png)
+
 To obtain an empty template (without the demo application), type:
 ```
 bipy-gui-manager create-project --no-demo
