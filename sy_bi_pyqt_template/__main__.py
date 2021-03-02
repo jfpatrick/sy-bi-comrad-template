@@ -25,7 +25,8 @@ def main():
         It creates a QApplication and an ApplicationFrame to wrap your GUI.
         Then loads your GUI into the main window and shows it, entering the event loop.
     """
-    logging.info("Starting up {}...".format(APPLICATION_NAME))
+    logging.basicConfig()
+    logging.getLogger().setLevel(logging.DEBUG)
 
     # Instantiate the QApplication
     app = QApplication(sys.argv)
@@ -33,6 +34,9 @@ def main():
     try:
         # Instantiate the ApplicationFrame
         window = ApplicationFrame(use_timing_bar=True, use_log_console=True)
+
+        #logger = getLogger()
+        logging.info("Starting up {}...".format(APPLICATION_NAME))
 
         # Set the Timing Widget (the one on the top-left corner of the frame) to read data from one accelerator.
         # For the example, we set SPS

@@ -3,7 +3,7 @@ For reference, see:
 https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-widgets
 https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-widgets-resources
 """
-from logging import getLogger
+import logging
 from PyQt5.QtWidgets import QTabWidget
 
 # Import the models
@@ -50,10 +50,3 @@ class MainWidget(QTabWidget, Ui_TabWidget):
         data_source = SinglePointSource(parameter_name="BISWRef1/Acquisition#angle", selector="")
         # Add it as a curve to the plot
         self.scrolling_plot.addCurve(data_source=data_source)
-
-        # Log something to see it in the log widget
-        self.logger = getLogger('main')
-        self.logger.debug("This message won't be visible, because the default log level is WARNING")
-        self.logger.warning("This is a message from the application.")
-
-

@@ -3,6 +3,7 @@ For reference, see:
 https://acc-py.web.cern.ch/gitlab/bisw-python/pyqt-tutorial/docs/stable/2-project-structure.html#project-name-models
 """
 import math
+import logging
 from datetime import datetime
 
 from PyQt5.QtCore import QObject, pyqtSlot
@@ -15,8 +16,8 @@ from accwidgets.graph import UpdateSource, PointData
 # Monkey-patch PyJAPC with papc - connect to simulated devices instead of real devices
 # UNCOMMENT THESE LINES TO CONNECT WITH A SIMULATED DEVICE
 #
-# from sy_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
-# pyjapc.PyJapc = setup_papc_devices()
+#from sy_bi_pyqt_template.models.papc_setup.papc_devices import setup_papc_devices
+#pyjapc.PyJapc = setup_papc_devices()
 #########################################################################################
 
 
@@ -51,6 +52,7 @@ class SpinBoxModel(QObject):
         :param value: the frequency to set
         :return: None
         """
+        logging.warning(f"Setting new frequency: {value}")
         self.japc.setParam("BISWRef1/Settings#frequency", value)
 
 
