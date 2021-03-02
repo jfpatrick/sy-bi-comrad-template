@@ -1,4 +1,4 @@
-# SY-BI PyQt5 Template    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/sy-bi-pyqt-template/sps-bgi-expert-gui/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/pipeline.svg)
+# SY-BI PyQt5 Template    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/pipeline.svg)
 
 This is the repository for the SY-BI PyQt5 Template code.
 
