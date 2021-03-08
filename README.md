@@ -26,7 +26,7 @@ for a more detailed explanation of all the features.
 Assuming you have access to `bipy-gui-manager` ([see here](https://gitlab.cern.ch/bisw-python/bipy-gui-manager)),
 type:
 ```
-bipy-gui-manager create-project
+bipy-gui-manager new
 ```
 This will start a wizard that will give you a customized copy of this template.
 
@@ -45,7 +45,7 @@ to the maintainers.
 
 To obtain an empty template (without the demo application), type:
 ```
-bipy-gui-manager create-project --no-demo
+bipy-gui-manager new --no-demo
 ```
 
 -------------------------------
