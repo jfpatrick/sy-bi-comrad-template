@@ -74,7 +74,7 @@ git clone https://:@gitlab.cern.ch:8443/cern-username/project-name.git
 
 ```bash
 cd project-name/
-source /acc/local/share/python/acc-py-pyqt/setup.sh
+source /acc/local/share/python/acc-py/base/2020.11/setup.sh
 acc-py venv venv
 source venv/bin/activate
 ```
