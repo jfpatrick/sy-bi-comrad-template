@@ -28,7 +28,7 @@ If the app has been deployed to the development folder, you can launch it with:
 
 #### [BI Launcher](https://gitlab.cern.ch/bisw-java-fwk/bi-launcher)
 
-If it has been registered in the BI Launcher, you can launc it in this way:
+If it has been registered in the BI Launcher, you can launch it in this way:
 
 ```bash
 /user/bdisoft/operational/tools/bi-launcher/launcher <app name in the Launcher>
