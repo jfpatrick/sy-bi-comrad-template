@@ -1,0 +1,16 @@
+[project]
+name = "comrad-template"
+version = "0.0.1"
+dependencies = [ "comrad==0.1.1",]
+description = "SY-BI Template for ComRAD"
+[[project.maintainers]]
+name = "Sara Zanzottera"
+email = "sara.zanzottera@cern.ch"
+
+[build-system]
+requires = [ "comrad==0.1.1",]
+build-backend = "comrad_package.builder"
+
+[tool.comrad.package]
+entrypoint = "main.ui"
+arguments = "--window-plugin-config comrad.pls.show_bar=1"
