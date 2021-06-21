@@ -1,4 +1,4 @@
-# Project Name    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/gitlab-group/sy-bi-pyqt-template/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/gitlab-group/sy-bi-pyqt-template/badges/master/pipeline.svg)
+# Project Name
 
 _Here goes the project description_
 
