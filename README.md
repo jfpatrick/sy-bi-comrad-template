@@ -1,24 +1,9 @@
-# SY-BI PyQt5 Template    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/bisw-python/sy-bi-pyqt-template/badges/master/pipeline.svg)
+# SY-BI ComRAD Template    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/bisw-python/sy-bi-comrad-template/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/bisw-python/sy-bi-comrad-template/badges/master/pipeline.svg)
 
-This is the repository for the SY-BI PyQt5 Template code.
+This is the repository for the SY-BI ComRAD Template code.
 
-It can be used to bootstrap a PyQt GUI project: the code provides a basic
-architecture that you only have to extend with your own interface and logic. 
-
-It provides:
-- A sane folder structure for your code, based on the MVP architecture.
-- A test setup ready for unit tests and GUI tests (based on `pytest-qt`)
-- A minimal simulation environment for your tests (based on 
-[`papc`](https://gitlab.cern.ch/pelson/papc)), 
-that can be extended to mimick your real data sources (FESA, NXCALS, ...)
-- A `setup.py` to customize for quick packaging & release, with `entry_points`
-- `.gitignore` with common Python artifacts
-- `.gitlab-ci.yml` supporting GUI testing out of the box and coverage reports
-- A small `activate.sh` activation script to activate both your virtualenv and Acc-Py, and
-sets up some env vars for QtDesigner
-
-See the [documentation](https://acc-py.web.cern.ch/gitlab/szanzott/pyqt-mega-tutorial-for-sy-bi/docs/master/fast/5-project-structure.html)
-for a more detailed explanation of all the features.
+It can be used to bootstrap a ComRAD GUI project: the code provides a basic
+structure that you only have to extend with your own interface and logic. 
 
 ## Getting started
 
@@ -28,7 +13,7 @@ type:
 ```
 bipy-gui-manager new
 ```
-This will start a wizard that will give you a customized copy of this template.
+This will start a wizard that will give you a customized copy of this template. Remember to specify that you want to create a ComRAD project, not a PyQt one.
 
 #### Start
 The application can already be started. To start it, type in the console the name of your project
