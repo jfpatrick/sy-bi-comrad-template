@@ -1,4 +1,4 @@
-# SY-BI ComRAD Template    &nbsp; &nbsp; &nbsp; ![](https://gitlab.cern.ch/bisw-python/sy-bi-comrad-template/badges/master/coverage.svg)  ![](https://gitlab.cern.ch/bisw-python/sy-bi-comrad-template/badges/master/pipeline.svg)
+# SY-BI ComRAD Template
 
 This is the repository for the SY-BI ComRAD Template code.
 
