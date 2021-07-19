@@ -1,14 +1,14 @@
 [project]
-name = "comrad-template"
+name = "sy-bi-comrad-template"
 version = "0.0.1"
-dependencies = [ "comrad==0.1.1",]
-description = "SY-BI Template for ComRAD"
+dependencies = [ "comrad",]
+description = "SY BI ComRAD Template"
 [[project.maintainers]]
 name = "Sara Zanzottera"
 email = "sara.zanzottera@cern.ch"
 
 [build-system]
-requires = [ "comrad==0.1.1",]
+requires = [ "comrad",]
 build-backend = "comrad_package.builder"
 
 [tool.comrad.package]
